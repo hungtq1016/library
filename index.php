@@ -6,12 +6,9 @@
   <body  class=" layout-fluid">
     <div class="page">
       <?php 
-        $auth = true;
-        if ($auth) {
+        if(isset($_COOKIE["user"])) {
           include_once 'src/View/Inc/aside.php';
-        }else{
-          echo 'vui long dang nhap de xem';
-        }     
+        }   
       ?>
       <div class="page-wrapper">
         <?php include_once 'src/Controllers/Routing.php'?>

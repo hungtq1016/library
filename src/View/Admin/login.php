@@ -9,7 +9,7 @@
                 <form action="src/Controllers/Admin/login.php" method="post">
                     <div class="mb-3">
                         <label class="form-label">Tên Đăng Nhập</label>
-                        <input type="text" class="form-control"  autocomplete="off" name="username">
+                        <input type="text" class="form-control" name="username">
                     </div>
                     <div class="mb-2">
                         <label class="form-label">
@@ -19,7 +19,7 @@
                             </span>
                         </label>
                         <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" id="password" autocomplete="off" name="password">
+                            <input type="password" class="form-control" id="password" name="password">
                             <span class="input-group-text">
                                 <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Hiện Mật Khẩu" onclick="showPassword()"
                                     data-bs-original-title="Hiện Mật Khẩu">

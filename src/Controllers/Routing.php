@@ -1,39 +1,47 @@
 <?php
   $routes = [];
-  route('/', function (){
-      require 'src/View/TopView/index.php';
-  });
-  route('/books', function (){
-    require 'src/View/BookView/index.php';
-  });
-  route('/book', function (){
-    require 'src/View/BookView/add.php';
-  });
-  route('/book-view', function (){
-    require 'src/View/BookView/view.php';
-  });
-  route('/loans', function (){
-    require 'src/View/LoanView/index.php';
-  });
-  route('/loan', function (){
-    require 'src/View/LoanView/add.php';
-  });
-  route('/users', function (){
-    require 'src/View/UserView/index.php';
-  });
-  route('/user', function (){
-    require 'src/View/UserView/add.php';
-  });
-  route('/login', function (){
-    require 'src/View/Admin/login.php';
-  });
+
+    if (!isset($_COOKIE["user"])) {
+      require 'src/View/Admin/login.php';
+    }else{
+      route('/', function (){
+        require 'src/View/TopView/index.php';
+      });
+      route('/books', function (){
+        require 'src/View/BookView/index.php';
+      });
+      route('/book', function (){
+        require 'src/View/BookView/add.php';
+      });
+      route('/book-view', function (){
+        require 'src/View/BookView/view.php';
+      });
+      route('/loans', function (){
+        require 'src/View/LoanView/index.php';
+      });
+      route('/loan', function (){
+        require 'src/View/LoanView/add.php';
+      });
+      route('/users', function (){
+        require 'src/View/UserView/index.php';
+      });
+      route('/user', function (){
+        require 'src/View/UserView/add.php';
+      });
+      route('/login', function (){
+        require 'src/View/Admin/login.php';
+      });
+      run();
+    }
+  
+
   function route(string $path, callable $callback)
   {
       global $routes;
       $routes[$path] = $callback;
   }
 
-  run();
+  
 
   function run()
   {
