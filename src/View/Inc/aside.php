@@ -391,5 +391,13 @@
         </li>
       </ul>
     </div>
+    <div>
+      <?php 
+       $user =json_decode(base64_decode($_COOKIE["user"])) ;
+       var_dump($user);
+        echo $user[0]->admin_name;
+
+      ?>
+    </div>
   </div>
 </aside>
