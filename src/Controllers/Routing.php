@@ -12,11 +12,11 @@
   route('/book-view', function (){
     require 'src/View/BookView/view.php';
   });
-  route('/borrows', function (){
-    require 'src/View/BorrowView/index.php';
+  route('/loans', function (){
+    require 'src/View/LoanView/index.php';
   });
-  route('/borrow', function (){
-    require 'src/View/BorrowView/add.php';
+  route('/loan', function (){
+    require 'src/View/LoanView/add.php';
   });
   route('/users', function (){
     require 'src/View/UserView/index.php';
@@ -24,8 +24,10 @@
   route('/user', function (){
     require 'src/View/UserView/add.php';
   });
-
-  function route(string $path, callable$callback)
+  route('/login', function (){
+    require 'src/View/Admin/login.php';
+  });
+  function route(string $path, callable $callback)
   {
       global $routes;
       $routes[$path] = $callback;
