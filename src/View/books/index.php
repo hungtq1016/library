@@ -1,3 +1,4 @@
+<?php include '../Inc/header.php' ?>
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -14,11 +15,14 @@
             <div class="col-12 col-md-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <a href="/book-e-excel" class="btn btn-info d-none d-sm-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-export" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                    <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3"></path>
-                    </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-export"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                            <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3">
+                            </path>
+                        </svg>
                         Xuất Danh Sách
                     </a>
                     <a href="/book-i-excel" class="btn btn-success d-none d-sm-inline-block">
@@ -43,10 +47,13 @@
                     </a>
                     <a href="/book-e-excel" class="btn btn-info d-sm-none btn-icon">
                         <!-- SVG export -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-export" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                        <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-export"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                            <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3">
+                            </path>
                         </svg>
                     </a>
                     <a href="/book-i-excel" class="btn btn-success d-sm-none btn-icon">
@@ -222,7 +229,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                    include 'src/Model/Book_M.php';
+                                    include '../../Model/Book_M.php';
                                     $books = new Book_M();
                                     $read = $books->read();
                                     while($set = $read->fetch()):
@@ -231,7 +238,8 @@
                                 <tr>
                                     <td><span class="text-muted"><?php echo $set['book_id']?></span></td>
                                     <td style="width:100px">
-                                        <img src=<?php echo $set['book_image']?> alt=<?php echo $set['book_name']?> class="img-fluid">
+                                        <img src=<?php echo $set['book_image']?> alt=<?php echo $set['book_name']?>
+                                            class="img-fluid">
                                     </td>
                                     <td>
                                         <?php echo $set['book_name']?>
@@ -240,10 +248,10 @@
                                         <?php echo $set['book_category']?>
                                     </td>
                                     <td>
-                                    <?php echo $set['book_stock']?>
+                                        <?php echo $set['book_stock']?>
                                     </td>
                                     <td>
-                                    <?php echo $set['book_author']?>
+                                        <?php echo $set['book_author']?>
                                     </td>
                                     <td>
                                         <span class="badge bg-success me-1"></span> <?php echo $set['book_status']?>
@@ -251,7 +259,8 @@
                                     <td class="text-end">
                                         <span class="dropdown">
                                             <button class="btn dropdown-toggle align-text-top"
-                                                data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành Động</button>
+                                                data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
+                                                Động</button>
                                             <div class="dropdown-menu dropdown-menu-end">
                                                 <a class="dropdown-item" href="#">
                                                     Ẩn
@@ -272,9 +281,15 @@
                             </tbody>
                         </table>
                     </div>
-                 
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php include '../Inc/footer.php'; ?>
+<script>
+    $(document).ready(function () {
+    $('#booksTable').DataTable();
+  });
+  </script>

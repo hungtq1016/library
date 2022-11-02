@@ -32,3 +32,14 @@
             </div>
           </div>
         </footer>
+          
+      </div>
+    </div>
+    <script src="../../assets/dist/js/tabler.min.js" ></script>
+  </body>
+  <script src="../../assets/js/index.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
+
+  </html>
