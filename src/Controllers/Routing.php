@@ -8,7 +8,7 @@
         require 'src/View/TopView/index.php';
       });
       route('/books', function (){
-        require 'src/View/BookView/index.php';
+        include 'src/View/BookView/index.php';
       });
       route('/book', function (){
         require 'src/View/BookView/add.php';

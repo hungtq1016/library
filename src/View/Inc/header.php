@@ -9,6 +9,8 @@
     <link href="src/assets/dist/css/tabler-payments.min.css?1666304673" rel="stylesheet"/>
     <link href="src/assets/dist/css/tabler-vendors.min.css?1666304673" rel="stylesheet"/>
     <link href="src/assets/dist/css/demo.min.css?1666304673" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css"/>
+    <link href="src/assets/scss/style.css" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
