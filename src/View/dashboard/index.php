@@ -1,4 +1,6 @@
-<?php include_once '../Inc/header.php'?>
+<?php 
+$title ='Trang Chủ';
+include_once '../Inc/header.php'?>
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">

@@ -1,3 +1,6 @@
+<?php
+$title = 'Đăng Nhập';
+ include 'Inc/header.php' ?>
 <div class="page page-center">
     <div class="container container-tight py-4">
         <div class="text-center mb-4">
@@ -51,3 +54,4 @@
         </div>
     </div>
 </div>
+<?php include 'Inc/footer.php' ?>

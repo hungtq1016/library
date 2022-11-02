@@ -1,4 +1,6 @@
-<?php include '../Inc/header.php' ?>
+<?php
+$title = 'Tra Cứu';
+ include '../Inc/header.php' ?>
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -35,7 +37,7 @@
                         </svg>
                         Thêm Bằng Excel
                     </a>
-                    <a href="/book" class="btn btn-primary d-none d-sm-inline-block">
+                    <a href="../books/add.php" class="btn btn-primary d-none d-sm-inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                             stroke-linejoin="round">

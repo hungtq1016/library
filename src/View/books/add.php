@@ -1,3 +1,8 @@
+<?php 
+$title = 'Thêm Sách';
+include '../Inc/header.php' 
+?>
+
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -69,7 +74,7 @@
                     </div>
                     <div class="card-footer text-end">
                         <div class="d-flex">
-                            <a href="/books" class="btn btn-link">Trở Về</a>
+                            <a href="../books/" class="btn btn-link">Trở Về</a>
                             <button type="submit" class="btn btn-primary ms-auto">Xác Nhận</button>
                         </div>
                     </div>
@@ -80,3 +85,4 @@
     </div>
 </div>
 </div>
+<?php include '../Inc/footer.php' ?>
