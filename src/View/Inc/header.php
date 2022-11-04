@@ -12,6 +12,7 @@
     <link href="http://localhost:8001/src/assets/dist/css/tabler-vendors.min.css?1666304673" rel="stylesheet"/>
     <link href="http://localhost:8001/src/assets/dist/css/demo.min.css?1666304673" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css"/>
+    
     <link href="http://localhost:8001/src/assets/scss/style.css" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
@@ -23,6 +24,7 @@
   <body  class=" layout-fluid">
     <div class="page">
       <?php 
+        define('ROOTPATH', "http://localhost:8001/src/View");
         if(isset($_COOKIE["user"])) {
           include_once 'aside.php';
         }   

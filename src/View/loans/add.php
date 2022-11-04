@@ -1,3 +1,7 @@
+<?php 
+$title ='Tra cứu thẻ mượn';
+$current = 'loans';
+include_once '../Inc/header.php'?>
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -17,7 +21,7 @@
     <div class="container-sm">
         <div class="row row-cards justify-content-center">
             <div class="col-6">
-                <form action="https://httpbin.org/post" method="post" class="card">
+                <form action="http://localhost:8001/src/Controllers/Books/add.php" method="post" class="card">
                     <div class="card-header">
                         <h4 class="card-title">Thêm</h4>
                     </div>
@@ -52,12 +56,12 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Số Lượng</label>
-                                            <input type="number" class="form-control" name="bookqty" value="1" min="0">
+                                            <input type="number" class="form-control" name="stock" value="1" min="0">
                                         </div>
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label class="form-label">Tóm Tắt</label>
-                                            <textarea class="form-control" name="booksynopsis" rows="6" placeholder="Tóm tắt nội dung quyển sách.."></textarea>
-                                        </div>
+                                            <textarea class="form-control" name="desc" rows="6" placeholder="Tóm tắt nội dung quyển sách.."></textarea>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -76,3 +80,4 @@
     </div>
 </div>
 </div>
+<?php include_once '../Inc/footer.php'?>

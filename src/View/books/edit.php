@@ -1,5 +1,5 @@
 <?php 
-$title = 'Thêm Sách';
+$title = 'Thay Đổi Thông Tin Sách';
 $current = 'books';
 include '../Inc/header.php' 
 ?>
@@ -13,7 +13,7 @@ include '../Inc/header.php'
                     Quản Lý Sách
                 </div>
                 <h2 class="page-title">
-                    Thêm Sách
+                    Thay Đổi Thông Tin Sách
                 </h2>
             </div>
         </div>
@@ -23,9 +23,16 @@ include '../Inc/header.php'
     <div class="container-sm">
         <div class="row row-cards justify-content-center">
             <div class="col-6">
-                <form action="http://localhost:8001/src/Controllers/Books/add.php" method="post" class="card" enctype="multipart/form-data">
+                <?php 
+                    $id = $_GET["id"];
+                    include '../../Model/Book_M.php';
+                    $books = new Book_M();
+                    // $update = $books->update_visible();     
+                    $read = $books->read($id);                           
+                ?>
+                <form action="" method="post" class="card" enctype="multipart/form-data">
                     <div class="card-header">
-                        <h4 class="card-title">Thêm</h4>
+                        <h4 class="card-title">Sửa Thông Tin</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -46,7 +53,7 @@ include '../Inc/header.php'
                                     <div class="col-md-6 col-xl-12">
                                         <div class="mb-3">
                                             <label class="form-label">Tên Sách</label>
-                                            <input type="text" class="form-control" name="name" placeholder="Nhập tên sách..." required>
+                                            <input type="text" class="form-control" name="name" placeholder="Nhập tên sách..." required value=<?php echo $read["book_name"]?>>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Năm Phát Hành</label>
@@ -54,27 +61,23 @@ include '../Inc/header.php'
                                             </div>
                                             <div class="mb-3">
                                             <label class="form-label">Hình Ảnh</label>
-                                                <input type="file" class="form-control" name="image" required>
+                                                <input type="file" class="form-control" name="image">
                                             </div>
                                             <div class="mb-3">
                                             <div class="form-label">Tác Giả</div>
                                             <select class="form-select" name="author">
-                                                <option value="1">Nguyễn Văn A</option>
-                                                <option value="2">Trần Văn B</option>
-                                                <option value="3">Lê Thị C</option>
+                                                <option value=<?php echo $read['book_author']?>><?php echo $read["book_author"]?></option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <div class="form-label">Thể Loại</div>
                                             <select class="form-select" name="category">
-                                                <option value="1">Hành Động</option>
-                                                <option value="2">Viễn Tưởng</option>
-                                                <option value="3">Ngôn Tình</option>
+                                                <option value=<?php echo $read["book_category"]?>><?php echo $read["book_category"]?></option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Số Lượng</label>
-                                            <input type="number" class="form-control" name="stock" value="1" min="0">
+                                            <input type="number" class="form-control" name="stock" value="<?php echo $read["book_stock"]?>" min="0">
                                         </div>
                                     </div>
                                 </div>

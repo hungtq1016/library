@@ -9,7 +9,7 @@ $title = 'Đăng Nhập';
         <div class="card card-md" style="margin:0 auto; width:600px">
             <div class="card-body">
                 <h2 class="h2 text-center mb-4">Đăng Nhập</h2>
-                <form action="src/Controllers/Admin/login.php" method="post">
+                <form action="http://localhost:8001/src/Controllers/Admin/login.php" method="post">
                     <div class="mb-3">
                         <label class="form-label">Tên Đăng Nhập</label>
                         <input type="text" class="form-control" name="username">

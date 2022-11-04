@@ -11,10 +11,9 @@
         
                 if ($login == true) {
                     setcookie("user", base64_encode(json_encode($login)), time() + (86400 * 30), "/");
-                    echo '<meta http-equiv="refresh" content="0;url=../../../"/>';
+                    header('Location: '.'http://localhost:8001/src/View/dashboard/');   
                 }else{
-                    echo '<script> alert("Dang nhap that bai")</script>';
-                    include "./View/login.php";
+                    header('Location: '.'http://localhost:8001/src/View/login.php');
                 }
             }
 ?>

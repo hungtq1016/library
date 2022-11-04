@@ -1,5 +1,6 @@
 <?php
 $title = 'Tra Cứu';
+$current = 'books';
  include '../Inc/header.php' ?>
 <div class="page-header d-print-none">
     <div class="container-xl">
@@ -213,8 +214,19 @@ $title = 'Tra Cứu';
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh Sách</h3>
+                        <div class="col">
+                            <h3 class="card-title">Danh Sách</h3>
+                        </div>
+                        <div class="col">
+                            <?php if (isset($_COOKIE['msgUpdate'])) :?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $_COOKIE['msgUpdate']?>
+                            </div>
+                            <?php endif ?>
+                        </div>
+
                     </div>
+                    <div class="row"></div>
                     <div class="table-responsive">
                         <table class="table card-table table-vcenter text-nowrap datatable" id="booksTable">
                             <thead>
@@ -233,18 +245,22 @@ $title = 'Tra Cứu';
                                 <?php 
                                     include '../../Model/Book_M.php';
                                     $books = new Book_M();
-                                    $read = $books->read();
-                                    while($set = $read->fetch()):
+                                    $store = $books->store();
+                                    while($set = $store->fetch()):
                                    
                                 ?>
                                 <tr>
                                     <td><span class="text-muted"><?php echo $set['book_id']?></span></td>
                                     <td style="width:100px">
-                                        <img src=<?php echo $set['book_image']?> alt=<?php echo $set['book_name']?>
-                                            class="img-fluid">
+                                        <a href="edit.php?id=<?php echo $set['book_id']?>">
+                                            <img src=<?php echo $set['book_image']?> alt=<?php echo $set['book_name']?>
+                                                class="img-fluid">
+                                        </a>
                                     </td>
                                     <td>
-                                        <?php echo $set['book_name']?>
+                                        <a href="edit.php?id=<?php echo $set['book_id']?>">
+                                            <?php echo $set['book_name']?>
+                                        </a>
                                     </td>
                                     <td>
                                         <?php echo $set['book_category']?>
@@ -256,7 +272,13 @@ $title = 'Tra Cứu';
                                         <?php echo $set['book_author']?>
                                     </td>
                                     <td>
-                                        <span class="badge bg-success me-1"></span> <?php echo $set['book_status']?>
+                                        <?php if($set['book_status'] =='Hiện') {?>
+                                            <span class="badge bg-success me-1"></span> <?php echo $set['book_status']?>
+                                        <?php }elseif($set['book_status'] =='Ẩn'){?>
+                                            <span class="badge bg-danger me-1"></span> <?php echo $set['book_status']?>
+                                        <?php }else{ ?>
+                                            <span class="badge bg-warning me-1"></span> <?php echo $set['book_status']?>
+                                        <?php }?>
                                     </td>
                                     <td class="text-end">
                                         <span class="dropdown">
@@ -264,12 +286,17 @@ $title = 'Tra Cứu';
                                                 data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                 Động</button>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">
+                                                <?php if ($set['book_status'] =='Hiện') { ?>
+                                                <a class="dropdown-item"
+                                                    href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['book_id']?>">
                                                     Ẩn
                                                 </a>
-                                                <a class="dropdown-item" href="#">
+                                                <?php } if ($set['book_status'] =='Ẩn') {?>
+                                                <a class="dropdown-item"
+                                                    href="http://localhost:8001/src/Controllers/Books/visible.php?id=<?php echo $set['book_id']?>">
                                                     Hiện
                                                 </a>
+                                                <?php } ?>
                                                 <a class="dropdown-item" href="#">
                                                     Xóa
                                                 </a>
@@ -291,7 +318,7 @@ $title = 'Tra Cứu';
 </div>
 <?php include '../Inc/footer.php'; ?>
 <script>
-    $(document).ready(function () {
+$(document).ready(function() {
     $('#booksTable').DataTable();
-  });
-  </script>
+});
+</script>

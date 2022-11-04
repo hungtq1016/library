@@ -1,5 +1,6 @@
 <?php 
 $title ='Trang Chủ';
+$current = 'dashboard';
 include_once '../Inc/header.php'?>
 <div class="page-header d-print-none">
     <div class="container-xl">
