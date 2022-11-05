@@ -59,9 +59,14 @@ include '../Inc/header.php'
                                             <div class="mb-3">
                                             <div class="form-label">Tác Giả</div>
                                             <select class="form-select" name="author">
-                                                <option value="1">Nguyễn Văn A</option>
-                                                <option value="2">Trần Văn B</option>
-                                                <option value="3">Lê Thị C</option>
+                                                <?php 
+                                                    include '../../Model/Author_M.php';
+                                                    $authors = new Author_M();
+                                                    $store = $authors->store();
+                                                    while($set = $store->fetch()):
+                                                ?>
+                                                <option value=<?php echo $set['author_id']?>><?php echo $set['author_name']?></option>
+                                                <?php endwhile?>
                                             </select>
                                         </div>
                                         <div class="mb-3">

@@ -33,6 +33,9 @@ class connect
 		// echo $results;
 		return($results);
 	}
+	/**
+	 * Thực hiện các câu lệnh có tham số truyền vào
+	 */
 	public function excePrepare($query)
 	{
 		$statement = $this->db->prepare($query);

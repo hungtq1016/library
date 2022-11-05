@@ -1,6 +1,6 @@
 <?php
-$title = 'Tra Cứu Sách';
-$current = 'books';
+$title = 'Tra Cứu Tác Giả';
+$current = 'author';
  include '../Inc/header.php' ?>
 <div class="page-header d-print-none">
     <div class="container-xl">
@@ -8,10 +8,10 @@ $current = 'books';
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    Quản Lý Sách
+                    Quản Lý Tác Giả
                 </div>
                 <h2 class="page-title">
-                    Tra Cứu Sách
+                    Tra Cứu Danh Sách
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -38,7 +38,7 @@ $current = 'books';
                         </svg>
                         Thêm Bằng Excel
                     </a>
-                    <a href="../books/add.php" class="btn btn-primary d-none d-sm-inline-block">
+                    <a href="add.php" class="btn btn-primary d-none d-sm-inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                             stroke-linejoin="round">
@@ -46,7 +46,7 @@ $current = 'books';
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        Thêm Sách
+                        Thêm Tác Giả
                     </a>
                     <a href="/book-e-excel" class="btn btn-info d-sm-none btn-icon">
                         <!-- SVG export -->
@@ -69,7 +69,7 @@ $current = 'books';
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
                     </a>
-                    <a href="/book" class="btn btn-primary d-sm-none btn-icon">
+                    <a href="/add.php" class="btn btn-primary d-sm-none btn-icon">
                         <!-- SVG plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -228,57 +228,56 @@ $current = 'books';
                     </div>
                     <div class="row"></div>
                     <div class="table-responsive">
-                        <table class="table card-table table-vcenter text-nowrap datatable" id="booksTable">
+                        <table class="table card-table table-vcenter text-nowrap datatable" id="authorTable">
                             <thead>
                                 <tr>
                                     <th>STT</th>
                                     <th>Hình Ảnh</th>
                                     <th style="width:300px">Tên</th>
-                                    <th>Thể Loại</th>
-                                    <th>Còn Lại</th>
-                                    <th>Tác Giả</th>
+                                    <th>Năm Sinh</th>
+                                    <th>Năm Mất</th>
+                                    <th>Nơi Sinh</th>
                                     <th>Trạng Thái</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                    include '../../Model/Book_M.php';
-                                    $books = new Book_M();
-                                    $store = $books->store();
-                                    $i=0;
+                                    include '../../Model/Author_M.php';
+                                    $authors = new Author_M();
+                                    $store = $authors->store();
                                     while($set = $store->fetch()):
-                                   $i++;
+                                   
                                 ?>
                                 <tr>
-                                    <td><span class="text-muted"><?php echo $i?></span></td>
+                                    <td><span class="text-muted"><?php echo $set['author_id']?></span></td>
                                     <td style="width:100px">
-                                        <a href="edit.php?id=<?php echo $set['book_id']?>">
-                                            <img src=<?php echo $set['book_image']?> alt=<?php echo $set['book_name']?>
+                                        <a href="edit.php?id=<?php echo $set['author_id']?>">
+                                            <img src="#" alt=<?php echo $set['author_name']?>
                                                 class="img-fluid">
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="edit.php?id=<?php echo $set['book_id']?>">
-                                            <?php echo $set['book_name']?>
+                                        <a href="edit.php?id=<?php echo $set['author_id']?>">
+                                            <?php echo $set['author_name']?>
                                         </a>
                                     </td>
                                     <td>
-                                        <?php echo $set['book_category']?>
+                                        <?php echo $set['author_yob']?>
                                     </td>
                                     <td>
-                                        <?php echo $set['book_stock']?>
+                                        <?php echo $set['author_yod']?>
                                     </td>
                                     <td>
-                                        <?php echo $set['author_name']?>
+                                        <?php echo $set['author_add']?>
                                     </td>
                                     <td>
-                                        <?php if($set['book_status'] =='Hiện') {?>
-                                            <span class="badge bg-success me-1"></span> <?php echo $set['book_status']?>
-                                        <?php }elseif($set['book_status'] =='Ẩn'){?>
-                                            <span class="badge bg-danger me-1"></span> <?php echo $set['book_status']?>
+                                        <?php if($set['author_status'] =='Hiện') {?>
+                                            <span class="badge bg-success me-1"></span> <?php echo $set['author_status']?>
+                                        <?php }elseif($set['author_status'] =='Ẩn'){?>
+                                            <span class="badge bg-danger me-1"></span> <?php echo $set['author_status']?>
                                         <?php }else{ ?>
-                                            <span class="badge bg-warning me-1"></span> <?php echo $set['book_status']?>
+                                            <span class="badge bg-warning me-1"></span> <?php echo $set['author_status']?>
                                         <?php }?>
                                     </td>
                                     <td class="text-end">
@@ -287,19 +286,19 @@ $current = 'books';
                                                 data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                 Động</button>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <?php if ($set['book_status'] =='Hiện') { ?>
+                                                <?php if ($set['author_status'] =='Hiện') { ?>
                                                 <a class="dropdown-item"
-                                                    href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['book_id']?>">
+                                                    href="http://localhost:8001/src/Controllers/Authors/invisible.php?id=<?php echo $set['author_id']?>">
                                                     Ẩn
                                                 </a>
-                                                <?php } if ($set['book_status'] =='Ẩn') {?>
+                                                <?php } if ($set['author_status'] =='Ẩn') {?>
                                                 <a class="dropdown-item"
-                                                    href="http://localhost:8001/src/Controllers/Books/visible.php?id=<?php echo $set['book_id']?>">
+                                                    href="http://localhost:8001/src/Controllers/Authors/visible.php?id=<?php echo $set['author_id']?>">
                                                     Hiện
                                                 </a>
                                                 <?php } ?>
-                                                <a class="dropdown-item" href="http://localhost:8001/src/Controllers/Books/delete.php?id=<?php echo $set['book_id']?>">
-                                                    Xóa
+                                                <a class="dropdown-item" href="http://localhost:8001/src/Controllers/Authors/delete.php?id=<?php echo $set['author_id']?>">
+                                                    Xóa
                                                 </a>
                                             </div>
                                         </span>
@@ -320,6 +319,6 @@ $current = 'books';
 <?php include '../Inc/footer.php'; ?>
 <script>
 $(document).ready(function() {
-    $('#booksTable').DataTable();
+    $('#authorTable').DataTable();
 });
 </script>

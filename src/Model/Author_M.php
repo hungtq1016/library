@@ -1,52 +1,52 @@
 <?php
     include 'connect.php';
-    class Book_M{
+    class Author_M{
         public function __construct() {   
         }
 
         public function store()
         {
             $db = new connect();
-            $query = 'SELECT books.*,authors.author_name FROM books INNER JOIN authors
-            ON books.book_author = authors.author_id';
+            $query = 'SELECT * FROM authors';
             $response = $db->getList($query);
             return $response;
         }
 
-        public function create($name,$category,$stock,$image,$author,$status)
+        public function create($name,$yob,$yod,$image,$add,$status)
         {
-            $query = "INSERT INTO books(book_name,book_category,book_stock,book_image,book_author,book_status) VALUES (?,?,?,?,?,?)";
+            $query = "INSERT INTO authors(author_name,author_yob,author_yod,author_image,author_add,author_status) VALUES (?,?,?,?,?,?)";
             $db = new connect();
             $create=$db->excePrepare($query);
-            $create->execute([$name,$category,$stock,$image,$author,$status]);
+            $create->execute([$name,$yob,$yod,$image,$add,$status]);
         }
 
         public function read($id)
         {
             $db = new connect();
-            $query = "SELECT * FROM books WHERE book_id= $id";
+            $query = "SELECT * FROM authors WHERE author_id= $id";
             $response = $db->getInstance($query);
             return $response;
         }
 
         public function update_visible($id)
         {
-            $query = "UPDATE books SET book_status = ? WHERE book_id=? ";
+            $query = "UPDATE authors SET author_status = ? WHERE author_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute(["Hiện",$id]);
+            $update->execute(["Hiện",$id]);
         }
         public function update_invisible($id)
         {
-            $query = "UPDATE books SET book_status = ? WHERE book_id=? ";
+            $query = "UPDATE authors SET author_status = ? WHERE author_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute(["Ẩn",$id]);
+            $update->execute(["Ẩn",$id]);
         }
         public function delete($id)
         {
-            $query = "DELETE FROM books WHERE book_id=?";
+            $query = "DELETE FROM authors WHERE author_id=?";
             $db = new connect();
+
             $delete=$db->excePrepare($query);
             $delete->execute([$id]);
         }
