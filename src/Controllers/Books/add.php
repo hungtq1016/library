@@ -14,7 +14,7 @@
                 /**
                  * Đổi tên ảnh để không bị trùng
                  */
-                $targetDir = "../../../public/uploads/";
+                $targetDir = "../../../public/books/";
                 $filename = $_FILES["image"]["name"];
                 $filetype = end(explode('.',$filename));
                 $randName = md5(time().$filename) .'.'. $filetype;
@@ -29,17 +29,13 @@
                     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
                     // Thêm vào DB
                         $book = new Book_M();
-                        $book->create($name,$category,$stock,'uploads/'.$randName,$author,$status);
+                        $book->create($name,$category,$stock,'books/'.$randName,$author,$status);
                         setcookie("msg", "Thêm thành công!", time() + 15, "/");
-                        header('Location: '.'http://localhost:8001/src/View/books/add.php');  
                 }else{
                     //Trả về lỗi nếu không đúng định dạng
                     setcookie("err", "File không đúng định dạng!", time() + 30, "/");
-                        header('Location: '.'http://localhost:8001/src/View/books/add.php');  
+                        
                 }
-
-
-              
-               
+                header('Location:http://'.$_SERVER['HTTP_HOST'].'/book');                  
             }
 ?>

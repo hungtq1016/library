@@ -1,9 +1,3 @@
-<?php 
-$title = 'Thêm Sách';
-$current = 'books';
-include '../Inc/header.php' 
-?>
-
 <div class="page-header d-print-none">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
@@ -60,7 +54,7 @@ include '../Inc/header.php'
                                             <div class="form-label">Tác Giả</div>
                                             <select class="form-select" name="author">
                                                 <?php 
-                                                    include '../../Model/Author_M.php';
+                                                   
                                                     $authors = new Author_M();
                                                     $store = $authors->store();
                                                     while($set = $store->fetch()):
@@ -72,9 +66,13 @@ include '../Inc/header.php'
                                         <div class="mb-3">
                                             <div class="form-label">Thể Loại</div>
                                             <select class="form-select" name="category">
-                                                <option value="1">Hành Động</option>
-                                                <option value="2">Viễn Tưởng</option>
-                                                <option value="3">Ngôn Tình</option>
+                                                <?php 
+                                                   $cate = new Category_M();
+                                                   $store = $cate->store();
+                                                   while($set = $store->fetch()):
+                                                ?>
+                                               <option value=<?php echo $set['category_id']?>><?php echo $set['category_name']?></option>
+                                               <?php endwhile?>
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -88,15 +86,12 @@ include '../Inc/header.php'
                     </div>
                     <div class="card-footer text-end">
                         <div class="d-flex">
-                            <a href="../books/" class="btn btn-link">Trở Về</a>
+                            <a href="/books" class="btn btn-link">Trở Về</a>
                             <button type="submit" class="btn btn-primary ms-auto">Xác Nhận</button>
                         </div>
                     </div>
-                    </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>
-</div>
-<?php include '../Inc/footer.php' ?>

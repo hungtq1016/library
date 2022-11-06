@@ -13,7 +13,7 @@
                 /**
                  * Đổi tên ảnh để không bị trùng
                  */
-                $targetDir = "../../../public/uploads/";
+                $targetDir = "../../../public/author/";
                 $filename = $_FILES["image"]["name"];
                 $filetype = end(explode('.',$filename));
                 $randName = md5(time().$filename) .'.'. $filetype;
@@ -28,17 +28,13 @@
                     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
                     // Thêm vào DB
                         $author = new Author_M();
-                        $author->create($name,$yob,$yod,'uploads/'.$randName,$add,$status);
+                        $author->create($name,$yob,$yod,'author/'.$randName,$add,$status);
                         setcookie("msgAuth", "Thêm thành công!", time() + 15, "/");
-                        header('Location: '.'http://localhost:8001/src/View/author/add.php');  
+                        
                 }else{
                     //Trả về lỗi nếu không đúng định dạng
                     setcookie("errAuth", "File không đúng định dạng!", time() + 15, "/");
-                        header('Location: '.'http://localhost:8001/src/View/author/add.php');  
                 }
-
-
-              
-               
+                header('Location:http://'.$_SERVER['HTTP_HOST'].'/author'); 
             }
 ?>

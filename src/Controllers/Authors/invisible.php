@@ -4,5 +4,5 @@
     $author = new Author_M();
     $author->update_invisible($id);
     setcookie("msgUpdate", "Ẩn thành công!", time() + 15, "/");
-    header('Location: '.'http://localhost:8001/src/View/author/'); 
-?>
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/authors'); 
+    ?>

@@ -1,21 +1,17 @@
+<?php 
+    $path =  explode('/',$_SERVER['REQUEST_URI'])[1];
+   
+?>
 <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
+            aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark">
-            <a href="http://localhost:8001/src/View/dashboard/">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="24"
-                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <line x1="3" y1="21" x2="21" y2="21"></line>
-                    <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"></path>
-                    <line x1="5" y1="21" x2="5" y2="10.85"></line>
-                    <line x1="19" y1="21" x2="19" y2="10.85"></line>
-                    <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
-                </svg>
-                <span>Quản Lý Thư Viện</span>
+            <a href="/">
+                <img src="public/assets/static/logo-white.svg" width="110" height="32" alt="Tabler"
+                    class="navbar-brand-image">
             </a>
         </h1>
         <div class="navbar-nav flex-row d-lg-none">
@@ -194,7 +190,8 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
-                    <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                    <span class="avatar avatar-sm"
+                        style="background-image: url(public/assets/static/avatars/000m.jpg)"></span>
                     <div class="d-none d-xl-block ps-2">
                         <div>Paweł Kuna</div>
                         <div class="mt-1 small text-muted">UI Designer</div>
@@ -205,318 +202,148 @@
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Feedback</a>
                     <div class="dropdown-divider"></div>
-                    <a href="./settings.html" class="dropdown-item">Settings</a>
-                    <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                    <a href="public/assets/settings.html" class="dropdown-item">Settings</a>
+                    <a href="public/assets/sign-in.html" class="dropdown-item">Logout</a>
                 </div>
             </div>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-menu">
+        <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-lg-3">
-                <li class="nav-item <?php echo ($current == 'dashboard') ?  'active' : ''?>">
-                    <a class="nav-link" href="<?php constant("ROOTPATH")?>/dashboard/">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24"
-                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <polyline points="5 12 3 12 12 3 21 12 19 12"></polyline>
-                                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
-                                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Trang Chủ
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown <?php echo ($current == 'loans') ?  'active' : ''?>">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hand-stop"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5"></path>
-                                <path d="M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5"></path>
-                                <path d="M14 5.5a1.5 1.5 0 0 1 3 0v6.5"></path>
-                                <path
-                                    d="M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47">
-                                </path>
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Quản Lý Mượn Sách
-                        </span>
-                    </a>
-                    <div class="dropdown-menu <?php echo ($current == 'loans') ?  'show' : ''?>">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="../loans/">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-search" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="10" cy="10" r="7"></circle>
-                                            <line x1="21" y1="21" x2="15" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Danh Sách Thẻ Mượn
-                                </a>
-                                <a class="dropdown-item" href="../loans/add.php">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="9" y1="12" x2="15" y2="12"></line>
-                                            <line x1="12" y1="9" x2="12" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Tạo Thẻ Mượn
-                                </a>
-
-                            </div>
-                        </div>
-                </li>
-                <li class="nav-item  dropdown <?php echo ($current == 'books') ?  'active' : ''?>">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="true">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24"
-                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                                <line x1="3" y1="6" x2="3" y2="19"></line>
-                                <line x1="12" y1="6" x2="12" y2="19"></line>
-                                <line x1="21" y1="6" x2="21" y2="19"></line>
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Quản Lý Sách
-                        </span>
-                    </a>
-                    <div class="dropdown-menu <?php echo ($current == 'books') ?  'show' : ''?>">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="../books/">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-search" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="10" cy="10" r="7"></circle>
-                                            <line x1="21" y1="21" x2="15" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Tra Cứu Sách
-                                </a>
-                                <a class="dropdown-item" href="../books/add.php">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="9" y1="12" x2="15" y2="12"></line>
-                                            <line x1="12" y1="9" x2="12" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Thêm sách
-                                </a>
-                                <a class="dropdown-item" href="/book-view">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-sunglasses" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M8 4h-2l-3 10"></path>
-                                            <path d="M16 4h2l3 10"></path>
-                                            <path d="M10 16h4"></path>
-                                            <path d="M21 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
-                                            <path d="M10 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5"></path>
-                                            <path d="M4 14l4.5 4.5"></path>
-                                            <path d="M15 14l4.5 4.5"></path>
-                                        </svg>
-                                    </span>
-                                    Tìm Nhanh
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown <?php echo ($current == 'students') ?  'active' : ''?>">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Quản Lý Nguời Dùng
-                        </span>
-                    </a>
-                    <div class="dropdown-menu <?php echo ($current == 'students') ?  'show' : ''?>">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="../students/">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-search" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="10" cy="10" r="7"></circle>
-                                            <line x1="21" y1="21" x2="15" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Tra Cứu Người Dùng
-                                </a>
-                                <a class="dropdown-item" href="../students/add.php">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="9" y1="12" x2="15" y2="12"></line>
-                                            <line x1="12" y1="9" x2="12" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Thêm Người Dùng
-                                </a>
-
-                            </div>
-                        </div>
-                </li>
-                <li class="nav-item dropdown <?php echo ($current == 'author') ?  'active' : ''?>">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Quản Lý Tác Giả
-    
-                        </span>
-                    </a>
-                    <div class="dropdown-menu <?php echo ($current == 'author') ?  'show' : ''?>">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="../author/">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-search" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="10" cy="10" r="7"></circle>
-                                            <line x1="21" y1="21" x2="15" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Tra Cứu Tác Giả
-                                </a>
-                                <a class="dropdown-item" href="../author/add.php">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="9" y1="12" x2="15" y2="12"></line>
-                                            <line x1="12" y1="9" x2="12" y2="15"></line>
-                                        </svg>
-                                    </span>
-                                    Thêm Tác Giả
-                                </a>
-
-                            </div>
-                        </div>
-                </li>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/lifebuoy -->
+                            <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <circle cx="12" cy="12" r="4" />
-                                <circle cx="12" cy="12" r="9" />
-                                <line x1="15" y1="15" x2="18.35" y2="18.35" />
-                                <line x1="9" y1="15" x2="5.65" y2="18.35" />
-                                <line x1="5.65" y1="5.65" x2="9" y2="9" />
-                                <line x1="18.35" y1="5.65" x2="15" y2="9" />
+                                <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            Help
+                            Thống Kê
                         </span>
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./docs/index.html">
-                            Documentation
-                        </a>
-                        <a class="dropdown-item" href="./changelog.html">
-                            Changelog
-                        </a>
-                        <a class="dropdown-item" href="https://github.com/tabler/tabler" target="_blank" rel="noopener">
-                            Source code
-                        </a>
-                        <a class="dropdown-item text-pink" href="https://github.com/sponsors/codecalm" target="_blank"
-                            rel="noopener">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-inline me-1" width="24" height="24"
+                </li>
+                <li class="nav-item dropdown <?php echo ($path == 'loans' ||$path == 'loan')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-hand" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M18 9l-6 -6l-9 9h2v7a2 2 0 0 0 2 2h3.5"></path>
+                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2"></path>
+                            <path d="M16 17.5l-.585 -.578a1.516 1.516 0 0 0 -2 0c-.477 .433 -.551 1.112 -.177 1.622l1.762 2.456c.37 .506 1.331 1 2 1h3c1.009 0 1.497 -.683 1.622 -1.593c.252 -.938 .378 -1.74 .378 -2.407c0 -1 -.939 -1.843 -2 -2h-1v-2.636c0 -.754 -.672 -1.364 -1.5 -1.364s-1.5 .61 -1.5 1.364v4.136z"></path>
+                          </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Thống Kê Mượn Sách
+                        </span>
+                    </a>
+                    <div class="dropdown-menu  <?php echo ($path == 'loans'||$path == 'loan')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/loans">
+                                    Tra cứu danh sách mượn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown <?php echo ($path == 'books' ||$path == 'book')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path
-                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                             </svg>
-                            Sponsor project!
-                        </a>
+                        </span>
+                        <span class="nav-link-title">
+                            Sách
+                        </span>
+                    </a>
+                    <div class="dropdown-menu <?php echo ($path == 'books' ||$path == 'book')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/books">
+                                    Tra Cứu Sách
+                                </a>  
+                                <a class="dropdown-item" href="/book">
+                                    Thêm Sách
+                                </a>           
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown <?php echo ($path == 'authors' ||$path == 'author')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Tác Giả
+                        </span>
+                    </a>
+                    <div class="dropdown-menu <?php echo ($path == 'authors' ||$path == 'author')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/authors">
+                                    Tra Cứu Tác Giả
+                                </a>  
+                                <a class="dropdown-item" href="/author">
+                                    Thêm Tác Giả
+                                </a>           
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown <?php echo ($path == 'categories' ||$path == 'category')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Thể Loại
+                        </span>
+                    </a>
+                    <div class="dropdown-menu <?php echo ($path == 'categories' ||$path == 'category')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/categories">
+                                    Tra Cứu Thể Loại
+                                </a>  
+                                <a class="dropdown-item" href="/category">
+                                    Thêm Thể Loại
+                                </a>           
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <?php $user =json_decode(base64_decode($_COOKIE["user"]),true) ;?>
-        <div>
-            <div class="btn-group dropup w-full">
-                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Xin Chào <?php echo $user[1] ?> !
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="src/Controllers/Admin/logout.php">Đăng Xuất</a></li>
-                </ul>
-            </div>
-        </div>
+    </div>
 </aside>

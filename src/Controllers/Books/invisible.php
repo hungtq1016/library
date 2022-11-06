@@ -4,5 +4,5 @@
     $book = new Book_M();
     $book->update_invisible($id);
     setcookie("msgUpdate", "Ẩn thành công!", time() + 15, "/");
-    header('Location: '.'http://localhost:8001/src/View/books/'); 
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/books'); 
 ?>

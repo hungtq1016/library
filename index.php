@@ -1,9 +1,15 @@
-<?php 
-    if (isset($_COOKIE["user"])) {
-        header('Location: '.'http://localhost:8001/src/View/dashboard/');   
-    }else{
-        header('Location: '.'http://localhost:8001/src/View/login.php');
+<!doctype html>
 
-    }
-
-?>
+<html lang="en">
+  <?php include_once('src/View/Inc/header.php');?>
+  <body  class=" layout-fluid">
+    <script src="public/assets/dist/js/demo-theme.min.js?1667333929"></script>
+    <div class="page">
+      <!-- Sidebar -->
+      <?php 
+        include_once('src/View/Inc/aside.php');
+        include_once('routes.php');
+      ?>
+    </div>
+  </body>
+</html>

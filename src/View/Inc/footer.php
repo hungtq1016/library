@@ -3,8 +3,8 @@
             <div class="row text-center align-items-center flex-row-reverse">
               <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots mb-0">
-                  <li class="list-inline-item"><a href="./docs/index.html" class="link-secondary">Documentation</a></li>
-                  <li class="list-inline-item"><a href="./license.html" class="link-secondary">License</a></li>
+                  <li class="list-inline-item"><a href="public/assets/docs/" class="link-secondary">Documentation</a></li>
+                  <li class="list-inline-item"><a href="public/assets/license.html" class="link-secondary">License</a></li>
                   <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
                   <li class="list-inline-item">
                     <a href="https://github.com/sponsors/codecalm" target="_blank" class="link-secondary" rel="noopener">
@@ -23,8 +23,8 @@
                     All rights reserved.
                   </li>
                   <li class="list-inline-item">
-                    <a href="./changelog.html" class="link-secondary" rel="noopener">
-                      v1.0.0-beta14
+                    <a href="public/assets/changelog.html" class="link-secondary" rel="noopener">
+                      v1.0.0-beta15
                     </a>
                   </li>
                 </ul>
@@ -32,14 +32,3 @@
             </div>
           </div>
         </footer>
-          
-      </div>
-    </div>
-    <script src="http://localhost:8001/src/assets/dist/js/tabler.min.js" ></script>
-  </body>
-  <script src="http://localhost:8001/src/assets/js/index.js"></script>
-  
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
-
-  </html>

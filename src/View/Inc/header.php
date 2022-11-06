@@ -1,19 +1,16 @@
-<!doctype html>
-<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title><?php echo $title?> | Quản Lý Thư Viện</title>
+    <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
     <!-- CSS files -->
-    <link href="http://localhost:8001/src/assets/dist/css/tabler.min.css?1666304673" rel="stylesheet"/>
-    <link href="http://localhost:8001/src/assets/dist/css/tabler-flags.min.css?1666304673" rel="stylesheet"/>
-    <link href="http://localhost:8001/src/assets/dist/css/tabler-payments.min.css?1666304673" rel="stylesheet"/>
-    <link href="http://localhost:8001/src/assets/dist/css/tabler-vendors.min.css?1666304673" rel="stylesheet"/>
-    <link href="http://localhost:8001/src/assets/dist/css/demo.min.css?1666304673" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css"/>
-    
-    <link href="http://localhost:8001/src/assets/scss/style.css" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/css/tabler.min.css?1667333929" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/css/tabler-flags.min.css?1667333929" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/css/tabler-payments.min.css?1667333929" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/css/tabler-vendors.min.css?1667333929" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/css/demo.min.css?1667333929" rel="stylesheet"/>
+    <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/scss/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/datatables.min.css"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -21,12 +18,7 @@
       }
     </style>
   </head>
-  <body  class=" layout-fluid">
-    <div class="page">
-      <?php 
-        define('ROOTPATH', "http://localhost:8001/src/View");
-        if(isset($_COOKIE["user"])) {
-          include_once 'aside.php';
-        }   
-      ?>
-      <div class="page-wrapper">
+  <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/dist/js/tabler.min.js" ></script>
+  <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/datatables.min.js"></script>
