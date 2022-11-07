@@ -1,5 +1,5 @@
 <?php
-    // include 'connect.php';
+    include_once 'connect.php';
     class Admin_M{
         public function __construct() {   
         }

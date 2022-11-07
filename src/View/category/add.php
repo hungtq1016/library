@@ -52,7 +52,7 @@
                         </div>
                         <div class="card-footer text-end">
                             <div class="d-flex">
-                                <a href="../category/" class="btn btn-link">Trở Về</a>
+                                <a href="/categories" class="btn btn-link">Trở Về</a>
                                 <button type="submit" class="btn btn-primary ms-auto">Xác Nhận</button>
                             </div>
                         </div>

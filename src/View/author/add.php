@@ -26,14 +26,14 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <?php if (isset($_COOKIE["msgAuth"])) :?>
+                                    <?php if (isset($_COOKIE["msg"])) :?>
                                     <div class="alert alert-success" role="alert">
-                                        <?php  echo $_COOKIE["msgAuth"];?>
+                                        <?php  echo $_COOKIE["msg"];?>
                                     </div>
                                     <?php endif ?>
-                                    <?php if (isset($_COOKIE["errAuth"])) :?>
+                                    <?php if (isset($_COOKIE["err"])) :?>
                                     <div class="alert alert-danger" role="alert">
-                                        <?php  echo $_COOKIE["errAuth"];?>
+                                        <?php  echo $_COOKIE["err"];?>
                                     </div>
                                     <?php endif ?>
                                 </div>

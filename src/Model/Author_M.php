@@ -1,5 +1,5 @@
 <?php
-    include 'connect.php';
+    include_once 'connect.php';
     class Author_M{
         public function __construct() {   
         }
@@ -49,6 +49,13 @@
 
             $delete=$db->excePrepare($query);
             $delete->execute([$id]);
+        }
+        public function isExist($name)
+        {
+            $db = new connect();
+            $query = "SELECT * FROM authors WHERE author_name= '$name'";
+            $response = $db->getInstance($query);
+            return $response;
         }
     }
 

@@ -19,7 +19,6 @@
             <div class="row row-cards justify-content-center">
                 <div class="col-6">
                     <?php 
-                    include 'src/Model/Category_M.php';
                     $category = new Category_M();
                     $read = $category->read($id);                           
                 ?>

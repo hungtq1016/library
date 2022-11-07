@@ -1,5 +1,6 @@
 <?php
-    include '../../Model/Book_M.php';
+  include_once '../../Model/Book_M.php';
+  include_once '../../Model/Log_M.php';
             if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['stock'])) {
                 /**
                  * Data được gửi từ form bên view -> books -> edit.php
@@ -18,6 +19,11 @@
                    
                     $book = new Book_M();
                     $book->update($name,$category,$stock,$image,$author,$id);
+
+                    $user = json_decode(base64_decode($_COOKIE['user']), true);
+                    $log = new Log_M();
+                    $log->create($user[1],"đã thay đổi <b>".$name."</b> từ sách.",$user[3]);
+
                     setcookie("msg", "Thay đổi thành công!", time() + 15, "/");
                 }else{
                     $targetDir = "../../../public/books/";
@@ -35,6 +41,12 @@
                         // Thêm vào DB
                             $book = new Book_M();
                             $book->update($name,$category,$stock,'books/'.$randName,$author,$id);
+
+                            $admin = json_decode(base64_decode($_COOKIE['user']), true)[1];
+                            $role = json_decode(base64_decode($_COOKIE['user']), true)[3];
+                            $log = new Log_M();
+                            $log->create($admin,"đã <span class='text-info'>thay đổi</span>  <b>".$name."</b> từ sách.");
+
                             setcookie("msg", "Thay đổi và ảnh thành công!", time() + 15, "/");
                     }else{
                         //Trả về lỗi nếu không đúng định dạng

@@ -1,15 +1,13 @@
 <?php
     include_once 'connect.php';
-    class Book_M{
+    class Loan_M{
         public function __construct() {   
         }
 
         public function store()
         {
             $db = new connect();
-            $query = 'SELECT books.*,authors.author_name,category.category_name FROM books
-                    INNER JOIN authors ON books.book_author = authors.author_id
-                    INNER JOIN category ON books.book_category = category.category_id';
+            $query = 'SELECT * FROM loans';
             $response = $db->getList($query);
             return $response;
         }
@@ -63,22 +61,6 @@
         {
             $db = new connect();
             $query = "SELECT * FROM books WHERE book_name= '$name'";
-            $response = $db->getInstance($query);
-            return $response;
-        }
-
-        public function count()
-        {
-            $db = new connect();
-            $query = "SELECT COUNT(book_id) AS c FROM books";
-            $response = $db->getInstance($query);
-            return $response;
-        }
-
-        public function countWithFilter($value)
-        {
-            $db = new connect();
-            $query = "SELECT COUNT(book_id) AS c FROM books WHERE book_status = '$value'";
             $response = $db->getInstance($query);
             return $response;
         }

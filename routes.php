@@ -18,5 +18,11 @@ get('/categories', 'src/View/category/index.php');
 get('/category/$id', 'src/View/category/edit.php');
 get('/category', 'src/View/category/add.php');
 
+get('/log', 'src/View/history/index.php');
+
+get('/login', 'src/View/login.php');
+
 any('/404','src/View/404.php');
+
+
 ?>

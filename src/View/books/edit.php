@@ -19,7 +19,6 @@
             <div class="row row-cards justify-content-center">
                 <div class="col-6">
                     <?php 
-                    include 'src/Model/Book_M.php';
                     $books = new Book_M();
                     $read = $books->read($id);                           
                 ?>

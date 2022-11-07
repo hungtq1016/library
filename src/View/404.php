@@ -1,3 +1,11 @@
-<div class="page-header d-print-none">
-    hien chua dung duoc
+<?php 
+    if (isset($_COOKIE['user'])) {
+ ?> 
+<div class="page-wrapper">
+    Hien chua dung duoc
 </div>
+<?php  }else{
+        header('Location:http://'.$_SERVER['HTTP_HOST'].'/login');    
+    }
+                  
+?>

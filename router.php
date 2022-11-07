@@ -1,7 +1,13 @@
 <?php
 // session_start();
 function get($route, $path_to_include){
-  if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ route($route, $path_to_include); }  
+  if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ 
+    if (!isset($_COOKIE['user'])) {
+      route('/login','src/View/login.php');
+    }else{
+      route($route, $path_to_include);
+    }
+   }  
 }
 function post($route, $path_to_include){
   if( $_SERVER['REQUEST_METHOD'] == 'POST' ){ route($route, $path_to_include); }    

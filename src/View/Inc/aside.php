@@ -190,11 +190,8 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
-                    <span class="avatar avatar-sm"
-                        style="background-image: url(public/assets/static/avatars/000m.jpg)"></span>
-                    <div class="d-none d-xl-block ps-2">
-                        <div>Paweł Kuna</div>
-                        <div class="mt-1 small text-muted">UI Designer</div>
+                    <div class="ps-2">
+                        <div><?php echo json_decode(base64_decode($_COOKIE['user']), true)[1]?></div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -203,13 +200,13 @@
                     <a href="#" class="dropdown-item">Feedback</a>
                     <div class="dropdown-divider"></div>
                     <a href="public/assets/settings.html" class="dropdown-item">Settings</a>
-                    <a href="public/assets/sign-in.html" class="dropdown-item">Logout</a>
+                    <a class="dropdown-item" href="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Admin/logout.php">Đăng Xuất</a>
                 </div>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-lg-3">
-                <li class="nav-item">
+                <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/')? 'active' : ''?>">
                     <a class="nav-link" href="/">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -257,13 +254,15 @@
                     <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-books" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+                                <rect x="9" y="4" width="4" height="16" rx="1"></rect>
+                                <path d="M5 8h4"></path>
+                                <path d="M9 16h4"></path>
+                                <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"></path>
+                                <path d="M14 9l4 -1"></path>
+                                <path d="M16 16l3.923 -.98"></path>
                             </svg>
                         </span>
                         <span class="nav-link-title">
@@ -287,13 +286,11 @@
                     <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ballpen" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 6l7 7l-4 4"></path>
+                                <path d="M5.828 18.172a2.828 2.828 0 0 0 4 0l10.586 -10.586a2 2 0 0 0 0 -2.829l-1.171 -1.171a2 2 0 0 0 -2.829 0l-10.586 10.586a2.828 2.828 0 0 0 0 4z"></path>
+                                <path d="M4 20l1.768 -1.768"></path>
                             </svg>
                         </span>
                         <span class="nav-link-title">
@@ -317,13 +314,12 @@
                     <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 4h6v6h-6z"></path>
+                                <path d="M14 4h6v6h-6z"></path>
+                                <path d="M4 14h6v6h-6z"></path>
+                                <circle cx="17" cy="17" r="3"></circle>
                             </svg>
                         </span>
                         <span class="nav-link-title">
@@ -343,6 +339,29 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item <?php echo ($path == 'log')? 'active' : ''?>">
+                    <a class="nav-link" href="/log">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="18" x2="20" y2="18"></line>
+                        </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Lịch Sử
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-group dropup d-none d-lg-inline">
+            <button type="button" class="btn btn-dark dropdown-toggle w-full" data-bs-toggle="dropdown" aria-expanded="false">
+                Xin chào <?php echo json_decode(base64_decode($_COOKIE['user']), true)[1]?>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Admin/logout.php">Đăng Xuất</a></li>
             </ul>
         </div>
     </div>
