@@ -9,6 +9,8 @@ get('/book/$id', 'src/View/books/edit.php');
 get('/book', 'src/View/books/add.php');
 
 get('/loans', 'src/View/loans/index.php');
+get('/fines', 'src/View/loans/fine.php');
+get('/fine/$id', 'src/View/loans/editfine.php');
 
 get('/authors', 'src/View/author/index.php');
 get('/author/$id', 'src/View/author/edit.php');

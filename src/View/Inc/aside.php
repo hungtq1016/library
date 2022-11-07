@@ -1,6 +1,5 @@
 <?php 
     $path =  explode('/',$_SERVER['REQUEST_URI'])[1];
-   
 ?>
 <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
     <div class="container-fluid">
@@ -224,7 +223,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item dropdown <?php echo ($path == 'loans' ||$path == 'loan')? 'active' : ''?>">
+                <li class="nav-item dropdown <?php echo ($path == 'loans'||$path == 'fine'||$path == 'fines')? 'active' : ''?>">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -240,11 +239,14 @@
                             Thống Kê Mượn Sách
                         </span>
                     </a>
-                    <div class="dropdown-menu  <?php echo ($path == 'loans'||$path == 'loan')? 'show' : ''?>">
+                    <div class="dropdown-menu  <?php echo ($path == 'loans'||$path == 'fine'||$path == 'fines')? 'show' : ''?>">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="/loans">
-                                    Tra cứu danh sách mượn
+                                    Danh Sách Mượn
+                                </a>
+                                <a class="dropdown-item" href="/fines">
+                                    Xem Tiền Phạt
                                 </a>
                             </div>
                         </div>

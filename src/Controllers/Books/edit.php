@@ -42,10 +42,9 @@
                             $book = new Book_M();
                             $book->update($name,$category,$stock,'books/'.$randName,$author,$id);
 
-                            $admin = json_decode(base64_decode($_COOKIE['user']), true)[1];
-                            $role = json_decode(base64_decode($_COOKIE['user']), true)[3];
+                            $user = json_decode(base64_decode($_COOKIE['user']), true);
                             $log = new Log_M();
-                            $log->create($admin,"đã <span class='text-info'>thay đổi</span>  <b>".$name."</b> từ sách.");
+                            $log->create($user[1],"đã <span class='text-info'>thay đổi</span>  <b>".$name."</b> từ sách.",$user[3]);
 
                             setcookie("msg", "Thay đổi và ảnh thành công!", time() + 15, "/");
                     }else{
