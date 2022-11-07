@@ -8,37 +8,40 @@
 <div class="col-12">
     <div class="row row-cards">
         <div class="col-sm-6 col-lg-3">
-            <div class="card card-sm">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <span class="bg-primary text-white avatar">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hand-stop"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5"></path>
-                                    <path d="M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5"></path>
-                                    <path d="M14 5.5a1.5 1.5 0 0 1 3 0v6.5"></path>
-                                    <path
-                                        d="M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47">
-                                    </path>
-                                </svg>
-                        </div>
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                132 Người Đang Mượn
+            <a href="/loans " class="text-decoration-none">
+                <div class="card card-sm">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <span class="bg-primary text-white avatar">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hand-stop"
+                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5"></path>
+                                        <path d="M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5"></path>
+                                        <path d="M14 5.5a1.5 1.5 0 0 1 3 0v6.5"></path>
+                                        <path
+                                            d="M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47">
+                                        </path>
+                                    </svg>
                             </div>
-                            <div class="text-muted">
-                                12 Hết Hạn
+                            <div class="col">
+                                <div class="font-weight-medium text-dark">
+                                    132 Người Đang Mượn
+                                </div>
+                                <div class="text-muted">
+                                    12 Hết Hạn
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-sm-6 col-lg-3">
+            <a href="/books" class="text-decoration-none">
             <div class="card card-sm">
                 <div class="card-body">
                     <div class="row align-items-center">
@@ -57,7 +60,7 @@
                             </span>
                         </div>
                         <div class="col">
-                            <div class="font-weight-medium">
+                            <div class="font-weight-medium text-dark">
                                 <?php echo $books->count()[0]?> Sách Còn
                             </div>
                             <div class="text-muted">
@@ -67,6 +70,7 @@
                     </div>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-sm-6 col-lg-3">
             <div class="card card-sm">

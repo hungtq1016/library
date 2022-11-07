@@ -108,11 +108,9 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Hình Ảnh</th>
-                                        <th style="width:300px">Tên</th>
-                                        <th>Thể Loại</th>
-                                        <th>Còn Lại</th>
-                                        <th>Tác Giả</th>
+                                        <th>Người Mượn</th>
+                                        <th>Ngày Mượn</th>
+                                        <th>Ngày Trả</th>
                                         <th>Trạng Thái</th>
                                         <th></th>
                                     </tr>
@@ -126,33 +124,24 @@
                                 ?>
                                     <tr>
                                         <td><span class="text-muted"><?php echo $i?></span></td>
-                                        <td style="width:100px">
-                                            <a href="book/<?php echo $set['book_id']?>">
-                                                <img src=<?php echo $set['book_image']?>
-                                                    alt=<?php echo $set['book_name']?> class="img-fluid">
+                                        <td>
+                                            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="show-detail" data-id="<?php echo $set['loan_id']?>">
+                                                <?php echo $set['loan_user']?>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="book/<?php echo $set['book_id']?>">
-                                                <?php echo $set['book_name']?>
-                                            </a>
+                                            <?php echo $set['loan_start']?>
                                         </td>
                                         <td>
-                                            <?php echo $set['category_name']?>
+                                            <?php echo $set['loan_end']?>
                                         </td>
                                         <td>
-                                            <?php echo $set['book_stock']?>
-                                        </td>
-                                        <td>
-                                            <?php echo $set['author_name']?>
-                                        </td>
-                                        <td>
-                                            <?php if($set['book_status'] =='Hiện') {?>
-                                            <span class="badge bg-success me-1"></span> <?php echo $set['book_status']?>
-                                            <?php }elseif($set['book_status'] =='Ẩn'){?>
-                                            <span class="badge bg-danger me-1"></span> <?php echo $set['book_status']?>
+                                            <?php if($set['loan_status'] =='Còn Hạn') {?>
+                                            <span class="badge bg-success me-1"></span> <?php echo $set['loan_status']?>
+                                            <?php }elseif($set['loan_status'] =='Đã Trả'){?>
+                                            <span class="badge bg-warning me-1"></span> <?php echo $set['loan_status']?>
                                             <?php }else{ ?>
-                                            <span class="badge bg-warning me-1"></span> <?php echo $set['book_status']?>
+                                            <span class="badge bg-danger me-1"></span> <?php echo $set['loan_status']?>
                                             <?php }?>
                                         </td>
                                         <td class="text-end">
@@ -161,39 +150,63 @@
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                     Động</button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <?php if ($set['book_status'] =='Hiện') { ?>
+                                                    <?php if ($set['loan_status'] =='Còn Hạn') { ?>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['book_id']?>">
-                                                        Ẩn
+                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        Xác Nhận Trả
                                                     </a>
-                                                    <?php } if ($set['book_status'] =='Ẩn') {?>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/visible.php?id=<?php echo $set['book_id']?>">
-                                                        Hiện
+                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        Báo Mất
+                                                    </a>
+                                                    <?php }else{ ?>
+                                                    <a class="dropdown-item"
+                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        Xem Vé Phạt
                                                     </a>
                                                     <?php } ?>
-                                                    <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/delete.php?id=<?php echo $set['book_id']?>">
-                                                        Xóa
-                                                    </a>
                                                 </div>
                                             </span>
                                         </td>
                                     </tr>
                                     <?php 
-                                endwhile;
-                                ?>
+                                    endwhile;
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Chi Tiết Sách</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="result">
+        Không có kết quả
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  $(".show-detail").click(function(){
+    var id = $(this).data('id');
+    $.ajax({url: "src/Controllers/Loan/detail.php?id="+id, success: function(result){
+      $("#result").html(result);
+    }});
+  });
+});
+</script>
 <script>
 $(document).ready(function() {
     $('#booksTable').DataTable();
