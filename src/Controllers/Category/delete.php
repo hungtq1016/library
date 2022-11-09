@@ -8,5 +8,5 @@ include_once '../../Model/Log_M.php';    $id = $_GET['id'];
     $log = new Log_M();
     $log->create($user[1], "đã <span class='text-danger'>xóa</span> <b>" . $read['category_name'] . "</b> từ thể loại.", $user[3]);
     setcookie("msgUpdate", "Xóa thành công!", time() + 15, "/");
-    header('Location:http://'.$_SERVER['HTTP_HOST'].'/categories'); 
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/categories'); 
     ?>

@@ -15,6 +15,6 @@
                 $log->create($user[1],"đã <span class='text-info'>thay đổi</span>  <b>".$money."</b> từ tiền phạt.",$user[3]);
 
                 setcookie("msg", "Thay đổi thành công!", time() + 15, "/");
-                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/'.'fine/'.$id);         
+                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/admin/'.'fine/'.$id);         
             }
 ?>

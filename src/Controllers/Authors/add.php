@@ -16,7 +16,7 @@ if (isset($_POST['name']) && isset($_POST['add']))
 
         if ($check):
             setcookie("err", "Đã Tồn Tại Tác Giả", time() + 15, "/");
-            header('Location:http://' . $_SERVER['HTTP_HOST'] . '/author');
+            header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/author');
             return;
         endif;
         /**
@@ -52,6 +52,6 @@ if (isset($_POST['name']) && isset($_POST['add']))
             setcookie("err", "File không đúng định dạng!", time() + 30, "/");
         }
     
-    header('Location:http://' . $_SERVER['HTTP_HOST'] . '/author');
+    header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/author');
 }
 ?>

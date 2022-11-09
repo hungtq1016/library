@@ -243,8 +243,11 @@
                     <div class="dropdown-menu  <?php echo ($path == 'loans'||$path == 'fine'||$path == 'fines')? 'show' : ''?>">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="/loans">
+                                <a class="dropdown-item" href="/admin/loans">
                                     Tra cứu danh sách mượn
+                                </a>
+                                <a class="dropdown-item" href="/admin/fine">
+                                    Xem tiền phạt
                                 </a>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) &&
 
         if ($check):
             setcookie("err", "Đã Tồn Tại Sách", time() + 15, "/");
-            header('Location:http://' . $_SERVER['HTTP_HOST'] . '/book');
+            header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/book');
             return;
         endif;
         /**
@@ -53,6 +53,6 @@ if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) &&
             setcookie("err", "File không đúng định dạng!", time() + 30, "/");
         }
     
-    header('Location:http://' . $_SERVER['HTTP_HOST'] . '/book');
+    header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/book');
 }
 ?>

@@ -53,6 +53,6 @@
                             
                     }
                 }
-                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/'.'book/'.$id);         
+                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/admin/'.'book/'.$id);         
             }
 ?>

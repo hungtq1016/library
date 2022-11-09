@@ -11,5 +11,5 @@
     $log->create($user[1],"đã thay đổi trạng thái <span class='text-warning'>hiện</span> của <b>".$read['book_name']."</b> từ sách.",$user[3]);
 
     setcookie("msgUpdate", "Hiện thành công!", time() + 15, "/");
-    header('Location:http://'.$_SERVER['HTTP_HOST'].'/books'); 
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/books'); 
 ?>

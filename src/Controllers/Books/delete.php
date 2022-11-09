@@ -11,5 +11,5 @@
     $log->create($user[1],"đã <span class='text-danger'>xóa</span> <b>".$read['book_name']."</b> từ sách.",$user[3]);
 
     setcookie("msgUpdate", "Xóa thành công!", time() + 15, "/");
-    header('Location:http://'.$_SERVER['HTTP_HOST'].'/books'); 
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/books'); 
 ?>

@@ -19,6 +19,6 @@ include_once '../../Model/Log_M.php';
                     $log->create($user[1], "đã <span class='text-success'>thêm</span> <b>" . $name . "</b> vào thể loại.", $user[3]);
                     setcookie("msg", "Thêm Thành Công", time() + 15, "/");
                 endif;
-                header('Location:http://'.$_SERVER['HTTP_HOST'].'/category'); 
+                header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/category'); 
             }
 ?>

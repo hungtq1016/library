@@ -11,5 +11,5 @@ include_once '../../Model/Log_M.php';
     $log->create($user[1],"đã thay đổi trạng thái <span class='text-warning'>hiện</span> của <b>".$read['author_name']."</b> từ tác giả.",$user[3]);
 
     setcookie("msgUpdate", "Hiện thành công!", time() + 15, "/");
-    header('Location:http://'.$_SERVER['HTTP_HOST'].'/authors'); 
+    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/authors'); 
     ?>
