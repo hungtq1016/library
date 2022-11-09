@@ -18,9 +18,7 @@ get('/admin/book', 'src/View/admin/books/add.php');
 
 get('/admin/loans', 'src/View/admin/loans/index.php');
 
-get('/admin/authors', 'src/View/admin/author/index.php');
-get('/admin/author/$id', 'src/View/admin/author/edit.php');
-get('/admin/author', 'src/View/admin/author/add.php');
+get('/loans', 'src/View/loans/index.php');
 
 get('/admin/categories', 'src/View/admin/category/index.php');
 get('/admin/category/$id', 'src/View/admin/category/edit.php');

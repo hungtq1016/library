@@ -29,10 +29,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium text-dark">
-                                    132 Người Đang Mượn
+                                    <?php echo $loans->count()[0]?> Người Mượn Trong Tháng
                                 </div>
                                 <div class="text-muted">
-                                    12 Hết Hạn
+                                <?php echo $loans->countExpired()[0]?> Hết Hạn Hoặc Mất
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <?php echo $books->count()[0]?> Sách Còn
                             </div>
                             <div class="text-muted">
-                            <?php echo $books->countWithFilter("Ẩn")[0]?> Sách Hết
+                            <?php echo $books->countWithFilter("Hết")[0]?> Sách Hết
                             </div>
                         </div>
                     </div>

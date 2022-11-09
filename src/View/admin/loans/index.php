@@ -111,17 +111,18 @@
                                         <th>Người Mượn</th>
                                         <th>Ngày Mượn</th>
                                         <th>Ngày Trả</th>
+                                        <th>Tiền Phạt</th>
                                         <th>Trạng Thái</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    $store = $loans->store();
-                                    $i=0;
-                                    while($set = $store->fetch()):
-                                   $i++;
-                                ?>
+                                        $store = $loans->store();
+                                        $i=0;
+                                        while($set = $store->fetch()):
+                                        $i++;
+                                    ?>
                                     <tr>
                                         <td><span class="text-muted"><?php echo $i?></span></td>
                                         <td>
@@ -136,12 +137,15 @@
                                             <?php echo $set['loan_end']?>
                                         </td>
                                         <td>
-                                            <?php if($set['loan_status'] =='Còn Hạn') {?>
-                                            <span class="badge bg-success me-1"></span> <?php echo $set['loan_status']?>
-                                            <?php }elseif($set['loan_status'] =='Đã Trả'){?>
-                                            <span class="badge bg-warning me-1"></span> <?php echo $set['loan_status']?>
+                                            <?php echo number_format($set['loan_fine']).' VNĐ'?>
+                                        </td>
+                                        <td>
+                                            <?php if($set['loan_status'] ==0) {?>
+                                            <span class="badge bg-success me-1"></span> <?php echo $set['status_name']?>
+                                            <?php }elseif($set['loan_status'] ==1){?>
+                                            <span class="badge bg-warning me-1"></span> <?php echo $set['status_name']?>
                                             <?php }else{ ?>
-                                            <span class="badge bg-danger me-1"></span> <?php echo $set['loan_status']?>
+                                            <span class="badge bg-danger me-1"></span> <?php echo $set['status_name']?>
                                             <?php }?>
                                         </td>
                                         <td class="text-end">
@@ -150,7 +154,7 @@
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                     Động</button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <?php if ($set['loan_status'] =='Còn Hạn') { ?>
+                                                    <?php if ($set['loan_status'] ==0) { ?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
                                                         Xác Nhận Trả
@@ -159,7 +163,7 @@
                                                         href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
                                                         Báo Mất
                                                     </a>
-                                                    <?php }else{ ?>
+                                                    <?php }else if($set['loan_status'] >1){ ?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
                                                         Xem Vé Phạt
