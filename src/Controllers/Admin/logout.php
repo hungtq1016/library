@@ -6,7 +6,7 @@
         $log->create($user,' đã ','đăng xuất');
         unset($_COOKIE['user']); 
         setcookie('user', null, -1, '/'); 
-        header('Location:http://'.$_SERVER['HTTP_HOST'].'/login'); 
+        header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/login'); 
         return true;
     } else {
         return false;

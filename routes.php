@@ -2,27 +2,38 @@
 
 require __DIR__.'/router.php';
 
-get('/', 'src/View/dashboard/index.php');
+/**
+ * Dashboard------------------------------------------------//
+ */
+get('/admin', 'src/View/admin/dashboard/index.php');
+// ---------------------------------------------------------//
+/**
+ * Book------------------------------------------------------//
+ */
+get('/admin/books', 'src/View/admin/books/index.php');
+get('/admin/book/$id', 'src/View/admin/books/edit.php');
+get('/admin/book', 'src/View/admin/books/add.php');
+// ---------------------------------------------------------//
 
-get('/books', 'src/View/books/index.php');
-get('/book/$id', 'src/View/books/edit.php');
-get('/book', 'src/View/books/add.php');
 
-get('/loans', 'src/View/loans/index.php');
+get('/admin/loans', 'src/View/admin/loans/index.php');
 
-get('/authors', 'src/View/author/index.php');
-get('/author/$id', 'src/View/author/edit.php');
-get('/author', 'src/View/author/add.php');
+get('/admin/authors', 'src/View/admin/author/index.php');
+get('/admin/author/$id', 'src/View/admin/author/edit.php');
+get('/admin/author', 'src/View/admin/author/add.php');
 
-get('/categories', 'src/View/category/index.php');
-get('/category/$id', 'src/View/category/edit.php');
-get('/category', 'src/View/category/add.php');
+get('/admin/categories', 'src/View/admin/category/index.php');
+get('/admin/category/$id', 'src/View/admin/category/edit.php');
+get('/admin/category', 'src/View/admin/category/add.php');
 
-get('/log', 'src/View/history/index.php');
+get('/admin/log', 'src/View/admin/history/index.php');
 
-get('/login', 'src/View/login.php');
+get('/admin/login', 'src/View/admin/login.php');
 
-any('/404','src/View/404.php');
+get('/', 'src/View/client/home/index.php');
+
+get('/tra-cuu', 'src/View/client/book/index.php');
+any('/404','src/404.php');
 
 
 ?>

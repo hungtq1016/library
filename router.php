@@ -2,8 +2,8 @@
 // session_start();
 function get($route, $path_to_include){
   if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ 
-    if (!isset($_COOKIE['user'])) {
-      route('/login','src/View/login.php');
+    if (!isset($_COOKIE['user'])&&explode("/", $_SERVER['REQUEST_URI'])[1]=='admin') {
+      route('/admin/login','src/View/admin/login.php');
     }else{
       route($route, $path_to_include);
     }

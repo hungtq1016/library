@@ -11,6 +11,15 @@
             $response = $db->getList($query);
             return $response;
         }
+
+        public function storeClient()
+        {
+            $db = new connect();
+            $query = 'SELECT category_name FROM category LIMIT 15';
+            $response = $db->getList($query);
+            return $response;
+        }
+
         public function create($name,$status)
         {
             $query = "INSERT INTO category(category_name,category_status) VALUES (?,?)";

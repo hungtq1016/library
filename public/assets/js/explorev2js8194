@@ -1,0 +1,36 @@
+/* Minification failed. Returning unminified contents.
+(26,1-2): run-time error JS1006: Expected ')': }
+(1,1-29): run-time error JS1301: End of file encountered before function is properly closed: function handleAdButlerAds()
+(32,1): run-time error JS1107: Expecting more source characters
+ */
+function handleAdButlerAds() {
+    $(".adbutler-ad").each(function () {
+
+    if (!window.AdButler) {
+        (function () {
+            var s = document.createElement("script");
+            s.async = true; s.type = "text/javascript";
+            s.src = 'https://servedbyadbutler.com/app.js';
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(s, n);
+        }());
+        }
+
+    var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+    var abkw = window.abkw || '';
+    var plc542088 = window.plc542088 || 0;
+    document.write('<' + 'div id="placement_542088_' + plc542088 + '"></' + 'div > ');
+        AdButler.ads.push({
+            handler: function (opt) {
+                AdButler.register(183283, 542088, [728, 90], 'placement_542088_' + opt.place, opt);
+            }, opt: {
+                place: plc542088++, keywords: abkw, domain: 'servedbyadbutler.com', click: 'CLICK_MACRO_PLACEHOLDER'
+            }
+        });
+    }
+}
+
+// Call function to render ads on page load
+$(document).ready(function () {
+    handleAdButlerAds();
+});;
