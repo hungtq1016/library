@@ -1,34 +1,31 @@
 <?php
-  include_once '../../Model/Book_M.php';
+  include_once '../../Model/Author_M.php';
   include_once '../../Model/Log_M.php';
-            if (isset($_POST['name']) && isset($_POST['year']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['stock'])) {
+            if (isset($_POST['name']) && isset($_POST['yob']) && isset($_POST['yod']) && isset($_POST['add'])) {
                 /**
-                 * Data được gửi từ form bên view -> books -> edit.php
+                 * Data được gửi từ form bên view -> author -> edit.php
                  */
                 $name=$_POST['name'];
-                $date=$_POST['date'];
-                $author=$_POST['author'];
-                $category=$_POST['category'];
-                $stock=$_POST['stock'];
+                $yob=$_POST['yob'];
+                $yod=$_POST['yod'];
+                $add=$_POST['add'];
                 $id=$_POST['hiddenId'];
                 $image=$_POST['hiddenImg'];
-                
-                ($stock == 0 ) ?$status='Hết':$status='Hiện';
                 /**
                  * Đổi tên ảnh để không bị trùng
                  */
                 if ($_FILES['image']['name'] == '') {
                     
-                    $book = new Book_M();
-                    $book->update($name,$category,$stock,$image,$author,$status,$id);
+                    $author = new Author_M();
+                    $author->update($name,$yob,$yod,$image,$add,$id);
                     
                     $user = json_decode(base64_decode($_COOKIE['user']), true);
                     $log = new Log_M();
-                    $log->create($user[1],"đã <span class='text-info'>thay đổi</span> <b>".$name."</b> từ sách.",$user[3]);
+                    $log->create($user[1],"đã <span class='text-info'>thay đổi</span> <b>".$name."</b> từ tác giả.",$user[3]);
 
                     setcookie("msg", "Thay đổi thành công!", time() + 15, "/");
                 }else{
-                    $targetDir = "../../../public/books/";
+                    $targetDir = "../../../public/author/";
                     $filename = $_FILES["image"]["name"];
                     $filetype = end(explode('.',$filename));
                     $randName = md5(time().$filename) .'.'. $filetype;
@@ -41,12 +38,12 @@
                         //Chuyển file tới public/uploads trên server để lưu ảnh
                         move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
                         // Thêm vào DB
-                            $book = new Book_M();
-                            $book->update($name,$category,$stock,'books/'.$randName,$author,$status,$id);
+                            $author = new Author_M();
+                            $author->update($name,$yob,$yod,'author/'.$randName,$add,$id);
 
                             $user = json_decode(base64_decode($_COOKIE['user']), true);
                             $log = new Log_M();
-                            $log->create($user[1],"đã <span class='text-info'>thay đổi</span>  <b>".$name."</b> từ sách.",$user[3]);
+                            $log->create($user[1],"đã <span class='text-info'>thay đổi</span>  <b>".$name."</b> từ tác giả.",$user[3]);
 
                             setcookie("msg", "Thay đổi và ảnh thành công!", time() + 15, "/");
                     }else{
@@ -55,6 +52,6 @@
                             
                     }
                 }
-                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/admin/'.'book/'.$id);         
+                header('Location: '.'http://'.$_SERVER['HTTP_HOST'].'/admin/'.'author/'.$id);         
             }
 ?>

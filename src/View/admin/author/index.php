@@ -127,7 +127,7 @@
                                         <td><span class="text-muted"><?php echo $set['author_id']?></span></td>
                                         <td style="width:100px">
                                             <a href="/admin/author/<?php echo $set['author_id']?>">
-                                                <img src="#" alt=<?php echo $set['author_name']?> class="img-fluid">
+                                                <img src="/public/<?php echo $set['author_image']?>" alt=<?php echo $set['author_name']?> class="img-fluid">
                                             </a>
                                         </td>
                                         <td>

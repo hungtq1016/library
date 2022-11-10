@@ -28,6 +28,14 @@
             return $response;
         }
 
+        public function update($name,$yob,$yod,$image,$add,$id)
+        {
+            $query = "UPDATE authors SET author_name = ?,author_yob =? ,author_yod =? ,author_image=? ,author_add=? WHERE author_id=? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([$name,$yob,$yod,$image,$add,$id]);
+        }
+
         public function update_visible($id)
         {
             $query = "UPDATE authors SET author_status = ? WHERE author_id=? ";

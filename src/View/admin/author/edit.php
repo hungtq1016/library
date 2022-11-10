@@ -22,7 +22,7 @@
                         $author = new Author_M();
                         $read = $author->read($id);                           
                     ?>
-                    <form action="http://localhost:8001/src/Controllers/Authors/add.php" method="post" class="card"
+                    <form action="http://localhost:8001/src/Controllers/Authors/edit.php" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Sửa Thông Tin</h4>
@@ -30,20 +30,21 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <?php if (isset($_COOKIE["msgAuth"])) :?>
+                                    <?php if (isset($_COOKIE["msg"])) :?>
                                     <div class="alert alert-success" role="alert">
-                                        <?php  echo $_COOKIE["msgAuth"];?>
+                                        <?php  echo $_COOKIE["msg"];?>
                                     </div>
                                     <?php endif ?>
-                                    <?php if (isset($_COOKIE["errAuth"])) :?>
+                                    <?php if (isset($_COOKIE["err"])) :?>
                                     <div class="alert alert-danger" role="alert">
-                                        <?php  echo $_COOKIE["errAuth"];?>
+                                        <?php  echo $_COOKIE["err"];?>
                                     </div>
                                     <?php endif ?>
                                 </div>
                                 <div class="col">
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
+                                        <input type="hidden" value="<?php echo $read["author_id"]?>" name="hiddenId">
                                             <div class="mb-3">
                                                 <label class="form-label">Tên Tác Giả</label>
                                                 <input type="text" class="form-control" name="name"
@@ -64,6 +65,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Hình Ảnh</label>
                                                 <input type="file" class="form-control" name="image" required>
+                                                <input type="hidden" value="<?php echo $read["author_image"]?>" name="hiddenImg">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Nơi Sinh</label>

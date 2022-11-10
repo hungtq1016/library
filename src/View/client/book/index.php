@@ -22,13 +22,13 @@
     <div class="shelf">
         <header class="shelf__header shelf__header--no-action">
             <h3 class="shelf__header-text">
-                <a href="collections/9320/biggest-books-of-november.html">Biggest Books of November</a>
+                <a href="collections/9320/biggest-books-of-november.html">Sách Nổi Bật</a>
             </h3>
 
-            <p class="shelf__description">Fall into these great reads!</p>
+            <p class="shelf__description">Được mượn nhiều nhất trong tháng!</p>
 
             <a href="collections/9320/biggest-books-of-november.html" class="shelf__link">
-                See all 70 titles <i class="arrow right"></i>
+                Xem thêm <i class="arrow right"></i>
             </a>
         </header>
 
@@ -67,9 +67,8 @@
 
             <div class="featured-collections-table">
                 <?php 
-                    $category = new Category_M();
-                    $store = $category->storeClient(10);
-                    while($set = $store->fetch()){ if($set['category_status']==4):
+                    $storeCate = $category->storeClient(10);
+                    while($set = $storeCate->fetch()){ if($set['category_status']==4):
                 ?>
                 <div class="featured-collection shelf">
 
@@ -77,30 +76,29 @@
                         <a href="category/<?php echo $set['category_id']?>"><?php echo $set['category_name']?></a>
                     </h4>
 
-                    <div class="collections-block shelf__row">
-                    <?php 
+                    <div class="row-title">
+                        <?php 
                             $query ="WHERE book_category = ".$set['category_id']." LIMIT 4";
                             $books = new Book_M();
                             $store = $books->readStatement($query);
+                            $i=0;
                             while($setBook = $store->fetch()){
+                            $i++;
                         ?>
-                        <div class="title-result" data-isbn="6093095">
-                            <div class="title-result__cover ">
-
-                                <a href="media/6093095/the-smart-cookie.html" data-ga-action="cover"
-                                    data-ga-title="The Smart Cookie" data-id="6093095" aria-label="The Smart Cookie">
-
-
-                                    <img src="public/<?php echo $setBook['book_image']?>" alt="<?php echo $setBook['book_name']?>">
-
-                                </a>
-                            </div>
+                        <div class="title-result__cover ">
+                            <a href="book/<?php echo $setBook['book_id']?>" data-ga-action="cover"
+                                data-ga-title="<?php echo $setBook['book_name']?>" data-id="<?php echo $setBook['book_id']?>" aria-label="<?php echo $setBook['book_name']?>">
+                                <img src="public/<?php echo $setBook['book_image']?>" alt="<?php echo $setBook['book_name']?>">
+                             </a>
+                             <?php if($i==4):?>
+                            <a class="see-more"
+                                href="category/<?php echo $set['category_id']?>">
+                                Xem Thêm
+                            </a>
+                            <?php endif ?>
                         </div>
                         <?php } ?>
                     </div>
-                    <a class="mobile-featured-collection-see-all-link" href="collections/888960/get-the-picture.html">
-                        Xem thêm
-                    </a>
                 </div>
                 <?php endif; } ?>
                 <!-- <div class="featured-collection shelf">

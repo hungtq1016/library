@@ -130,7 +130,7 @@
                                         <td><span class="text-muted"><?php echo $i?></span></td>
                                         <td style="width:100px">
                                             <a href="/admin/book/<?php echo $set['book_id']?>">
-                                                <img src=<?php echo $set['book_image']?>
+                                                <img src="/public/<?php echo $set['book_image']?>"
                                                     alt=<?php echo $set['book_name']?> class="img-fluid">
                                             </a>
                                         </td>
