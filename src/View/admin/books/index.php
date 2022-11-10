@@ -174,7 +174,7 @@
                                                         Hiện
                                                     </a>
                                                     <?php } ?>
-                                                    <a class="dropdown-item"
+                                                    <a class="dropdown-item" onclick=" return confirm('Bạn có chắc chắn muốn xóa?')"
                                                         href="http://localhost:8001/src/Controllers/Books/delete.php?id=<?php echo $set['book_id']?>">
                                                         Xóa
                                                     </a>

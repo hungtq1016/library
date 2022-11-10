@@ -13,7 +13,7 @@
                     $log = new LoginLog_M();
                     $log->create($username,' đã ','đăng nhập');
                     setcookie("user", base64_encode(json_encode($login)), time() + (86400 * 30), "/");
-                    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin//');                  
+                    header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/');                  
                 }else{
                     header('Location:http://'.$_SERVER['HTTP_HOST'].'/admin/login');                  
                 }

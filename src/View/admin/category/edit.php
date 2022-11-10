@@ -22,7 +22,7 @@
                     $category = new Category_M();
                     $read = $category->read($id);                           
                 ?>
-                    <form action="http://localhost:8001/src/Controllers/Category/add.php" method="post" class="card"
+                    <form action="http://localhost:8001/src/Controllers/Category/edit.php" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Sửa Thông Tin</h4>
@@ -30,14 +30,14 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <?php if (isset($_COOKIE["msgAuth"])) :?>
+                                    <?php if (isset($_COOKIE["msg"])) :?>
                                     <div class="alert alert-success" role="alert">
-                                        <?php  echo $_COOKIE["msgAuth"];?>
+                                        <?php  echo $_COOKIE["msg"];?>
                                     </div>
                                     <?php endif ?>
-                                    <?php if (isset($_COOKIE["errAuth"])) :?>
+                                    <?php if (isset($_COOKIE["err"])) :?>
                                     <div class="alert alert-danger" role="alert">
-                                        <?php  echo $_COOKIE["errAuth"];?>
+                                        <?php  echo $_COOKIE["err"];?>
                                     </div>
                                     <?php endif ?>
                                 </div>
@@ -47,8 +47,9 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Tên Tác Giả</label>
                                                 <input type="text" class="form-control" name="name"
-                                                    placeholder="Nhập tên sách..." required
+                                                    placeholder="Nhập tên thể loại..." required
                                                     value="<?php echo $read["category_name"]?>">
+                                                <input type="hidden" name="hiddenId" value="<?php echo $read["category_id"]?>">
                                             </div>
                                         </div>
                                     </div>

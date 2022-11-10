@@ -6,14 +6,14 @@ include_once '../../Model/Log_M.php';
                  * Data được gửi từ form bên view -> category -> add.php
                  */
                 $name=$_POST['name'];
-                $status ="Hiện";
+                $status =4;
                 $category = new Category_M();
 
                 $check = $category->isExist($name);
                 if($check):
                     setcookie("err", "Đã Tồn Tại Thể Loại", time() + 15, "/");
                 else:
-                    $create = $category->create($name,"Hiện");
+                    $create = $category->create($name,$status);
                     $user = json_decode(base64_decode($_COOKIE['user']) , true);
                     $log = new Log_M();
                     $log->create($user[1], "đã <span class='text-success'>thêm</span> <b>" . $name . "</b> vào thể loại.", $user[3]);

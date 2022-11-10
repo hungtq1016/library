@@ -1,7 +1,7 @@
 <?php
   include_once '../../Model/Book_M.php';
   include_once '../../Model/Log_M.php';
-            if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['stock'])) {
+            if (isset($_POST['name']) && isset($_POST['year']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['stock'])) {
                 /**
                  * Data được gửi từ form bên view -> books -> edit.php
                  */
@@ -12,14 +12,16 @@
                 $stock=$_POST['stock'];
                 $id=$_POST['hiddenId'];
                 $image=$_POST['hiddenImg'];
+                
+                ($stock == 0 ) ?$status='Hết':$status='Hiện';
                 /**
                  * Đổi tên ảnh để không bị trùng
                  */
                 if ($_FILES['image']['name'] == '') {
-                   
+                    
                     $book = new Book_M();
-                    $book->update($name,$category,$stock,$image,$author,$id);
-
+                    $book->update($name,$category,$stock,$image,$author,$status,$id);
+                    
                     $user = json_decode(base64_decode($_COOKIE['user']), true);
                     $log = new Log_M();
                     $log->create($user[1],"đã thay đổi <b>".$name."</b> từ sách.",$user[3]);
@@ -40,7 +42,7 @@
                         move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
                         // Thêm vào DB
                             $book = new Book_M();
-                            $book->update($name,$category,$stock,'books/'.$randName,$author,$id);
+                            $book->update($name,$category,$stock,'books/'.$randName,$author,$status,$id);
 
                             $user = json_decode(base64_decode($_COOKIE['user']), true);
                             $log = new Log_M();

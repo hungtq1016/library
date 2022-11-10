@@ -64,7 +64,7 @@
                                 <?php echo $books->count()[0]?> Sách Còn
                             </div>
                             <div class="text-muted">
-                            <?php echo $books->countWithFilter("Hết")[0]?> Sách Hết
+                            <?php echo $books->countWithFilter('Hết')[0]?> Sách Hết
                             </div>
                         </div>
                     </div>

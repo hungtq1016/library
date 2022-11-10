@@ -18,7 +18,7 @@
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
                 <div class="col-6">
-                    <form action="http://localhost:8001/src/Controllers/Books/add.php" method="post" class="card"
+                    <form action="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Books/add.php" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Thêm</h4>

@@ -8,7 +8,7 @@
         public function store()
         {
             $db = new connect();
-            $query = 'SELECT * FROM logs ORDER BY log_date DESC';
+            $query = 'SELECT * FROM logs ORDER BY log_date DESC LIMIT 20';
             $response = $db->getList($query);
             return $response;
         }

@@ -43,7 +43,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Tên Thể Loại</label>
                                                 <input type="text" class="form-control" name="name"
-                                                    placeholder="Nhập tên sách..." required>
+                                                    placeholder="Nhập tên thể loại..." required>
                                             </div>
                                         </div>
                                     </div>

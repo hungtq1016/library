@@ -9,11 +9,11 @@
         <div class="tags">
             <?php 
                 $category = new Category_M();
-                $store = $category->storeClient();
-                while($set = $store->fetch()):
+                $store = $category->storeClient(15);
+                while($set = $store->fetch()): if($set['category_status']==4):
             ?>
             <a href="#" class="tag"><?php echo $set['category_name']?></a>
-            <?php endwhile ?>
+            <?php endif; endwhile ?>
             <a href="#" class="tag" style="color:#ec1d25;border-color:#ec1d25">Xem Thêm</a>
         </div>
     </div>
@@ -33,306 +33,77 @@
         </header>
 
         <div class="shelf__row">
-
-            <div class="title-result" data-isbn="9079564">
-
-                <div class="type-icon icon-audiobook"></div>
-
+            <?php 
+                $books = new Book_M();
+                $store = $books->readStatement('LIMIT 6');
+                while($set = $store->fetch()):
+            ?>
+            <div class="title-result">
                 <div class="title-result__cover">
-                    <a href="media/9079564/the-light-we-carry.html" data-ga-action="cover"
-                        data-ga-title="The Light We Carry" data-id="9079564" aria-label="The Light We Carry">
-
-
-                        <img not-data-src="Content/img/load.gif"
-                            src="media/default-cover-image5bc0?title=The%20Light%20We%20Carry" srcset=""
-                            alt="cover image of The Light We Carry" data-ga-action="cover"
-                            data-title="The Light We Carry" data-id="9079564"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image5bc0?title=The%20Light%20We%20Carry';">
-
+                    <a href="/book/<?php echo $set['book_id']?> "data-ga-action="cover"
+                        data-ga-title="<?php echo $set['book_name']?>" data-id="<?php echo $set['book_id']?>" aria-label="<?php echo $set['book_name']?>">
+                        <img src="public/<?php echo $set['book_image']?>" alt="<?php echo $set['book_name']?>">
                     </a>
                 </div>
 
                 <div class="title-result__details">
                     <h4 class="title-result__title">
-                        <a href="media/9079564/the-light-we-carry.html" data-ga-action="cover"
-                            data-title="The Light We Carry" data-id="9079564">
-                            The Light We Carry
+                        <a href="/book/<?php echo $set['book_id']?>" data-ga-action="cover"
+                            data-title="<?php echo $set['book_name']?>" data-id="<?php echo $set['book_id']?>">
+                            <?php echo $set['book_name']?>
                         </a>
                     </h4>
-                    <h5 class="title-result__creator">Michelle Obama · Michelle Obama (2022)</h5>
+                    <h5 class="title-result__creator"><?php echo $set['author_name']?> (2022)</h5>
                 </div>
             </div>
-
-            <div class="title-result" data-isbn="8769276">
-
-                <div class="type-icon icon-audiobook"></div>
-
-                <div class="title-result__cover">
-                    <a href="media/8769276/going-rogue.html" data-ga-action="cover" data-ga-title="Going Rogue"
-                        data-id="8769276" aria-label="Going Rogue">
-
-
-                        <img not-data-src="Content/img/load.gif" src="media/default-cover-image3f88?title=Going%20Rogue"
-                            srcset="" alt="cover image of Going Rogue" data-ga-action="cover" data-title="Going Rogue"
-                            data-id="8769276"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image3f88?title=Going%20Rogue';">
-
-                    </a>
-                </div>
-
-                <div class="title-result__details">
-                    <h4 class="title-result__title">
-                        <a href="media/8769276/going-rogue.html" data-ga-action="cover" data-title="Going Rogue"
-                            data-id="8769276">
-                            Going Rogue
-                        </a>
-                    </h4>
-                    <h5 class="title-result__creator">Janet Evanovich · Lorelei King (2022)</h5>
-                </div>
-            </div>
-
-            <div class="title-result" data-isbn="7872134">
-
-                <div class="type-icon icon-audiobook"></div>
-
-                <div class="title-result__cover">
-                    <a href="media/7872134/friends-lovers-and-the-big-terrible-thing.html" data-ga-action="cover"
-                        data-ga-title="Friends, Lovers, and the Big Terrible Thing" data-id="7872134"
-                        aria-label="Friends, Lovers, and the Big Terrible Thing">
-
-
-                        <img not-data-src="Content/img/load.gif"
-                            src="media/default-cover-image610d?title=Friends%2C%20Lovers%2C%20and%20the%20Big%20Terrible%20Thing"
-                            srcset="" alt="cover image of Friends, Lovers, and the Big Terrible Thing"
-                            data-ga-action="cover" data-title="Friends, Lovers, and the Big Terrible Thing"
-                            data-id="7872134"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image610d?title=Friends%2C%20Lovers%2C%20and%20the%20Big%20Terrible%20Thing';">
-
-                    </a>
-                </div>
-
-                <div class="title-result__details">
-                    <h4 class="title-result__title">
-                        <a href="media/7872134/friends-lovers-and-the-big-terrible-thing.html" data-ga-action="cover"
-                            data-title="Friends, Lovers, and the Big Terrible Thing" data-id="7872134">
-                            Friends, Lovers, and the Big Terrible Thing
-                        </a>
-                    </h4>
-                    <h5 class="title-result__creator">Matthew Perry · Matthew Perry (2022)</h5>
-                </div>
-            </div>
-
-            <div class="title-result" data-isbn="8839068">
-
-                <div class="type-icon icon-ebook"></div>
-
-                <div class="title-result__cover">
-                    <a href="media/8839068/desert-star.html" data-ga-action="cover" data-ga-title="Desert Star"
-                        data-id="8839068" aria-label="Desert Star">
-
-
-                        <img not-data-src="Content/img/load.gif" src="media/default-cover-image1ff2?title=Desert%20Star"
-                            srcset="" alt="cover image of Desert Star" data-ga-action="cover" data-title="Desert Star"
-                            data-id="8839068"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image1ff2?title=Desert%20Star';">
-
-                    </a>
-                </div>
-
-                <div class="title-result__details">
-                    <h4 class="title-result__title">
-                        <a href="media/8839068/desert-star.html" data-ga-action="cover" data-title="Desert Star"
-                            data-id="8839068">
-                            Desert Star
-                        </a>
-                    </h4>
-                    <h5 class="title-result__creator">Michael Connelly (2022)</h5>
-                </div>
-            </div>
-
-            <div class="title-result" data-isbn="9086551">
-
-                <div class="type-icon icon-ebook"></div>
-
-                <div class="title-result__cover">
-                    <a href="media/9086551/the-seven-moons-of-maali-almeida-winner-of-the-booker-pr.html"
-                        data-ga-action="cover"
-                        data-ga-title="The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022"
-                        data-id="9086551"
-                        aria-label="The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022">
-
-
-                        <img not-data-src="Content/img/load.gif"
-                            src="media/default-cover-imagec251?title=The%20Seven%20Moons%20of%20Maali%20Almeida%3A%20Winner%20of%20the%20Booker%20Prize%202022"
-                            srcset=""
-                            alt="cover image of The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022"
-                            data-ga-action="cover"
-                            data-title="The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022"
-                            data-id="9086551"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-imagec251?title=The%20Seven%20Moons%20of%20Maali%20Almeida%3A%20Winner%20of%20the%20Booker%20Prize%202022';">
-
-                    </a>
-                </div>
-
-                <div class="title-result__details">
-                    <h4 class="title-result__title">
-                        <a href="media/9086551/the-seven-moons-of-maali-almeida-winner-of-the-booker-pr.html"
-                            data-ga-action="cover"
-                            data-title="The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022"
-                            data-id="9086551">
-                            The Seven Moons of Maali Almeida: Winner of the Booker Prize 2022
-                        </a>
-                    </h4>
-                    <h5 class="title-result__creator">Shehan Karunatilaka (2022)</h5>
-                </div>
-            </div>
-
-            <div class="title-result" data-isbn="7345836">
-
-                <div class="type-icon icon-audiobook"></div>
-
-                <div class="title-result__cover">
-                    <a href="media/7345836/bloodmarked.html" data-ga-action="cover" data-ga-title="Bloodmarked"
-                        data-id="7345836" aria-label="Bloodmarked">
-
-
-                        <img not-data-src="Content/img/load.gif" src="media/default-cover-imagee689?title=Bloodmarked"
-                            srcset="" alt="cover image of Bloodmarked" data-ga-action="cover" data-title="Bloodmarked"
-                            data-id="7345836"
-                            onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-imagee689?title=Bloodmarked';">
-
-                    </a>
-                </div>
-
-                <div class="title-result__details">
-                    <h4 class="title-result__title">
-                        <a href="media/7345836/bloodmarked.html" data-ga-action="cover" data-title="Bloodmarked"
-                            data-id="7345836">
-                            Bloodmarked
-                        </a>
-                    </h4>
-                    <h5 class="title-result__creator">Tracy Deonn · Joniece Abbott-Pratt (2022)</h5>
-                </div>
-            </div>
+            <?php endwhile ?>
         </div>
     </div>
-
-    <div class="horizontal-ad ad-one adbutler-ad">
-
-        <div id="placement_542088_0"></div>
-    </div>
-    <div class="horizontal-ad ad-two adbutler-ad mobile">
-        <!-- Explore Tab - Mobile Banner [async] -->
-
-        <div id="placement_542089_0"></div>
-    </div>
-
     <div class="l-row">
         <div class="featured-collections-panel">
             <header class="collections-panel__header">
-                <h3 tabindex="0">Featured Collections</h3>
+                <h3 tabindex="0">Theo Thể Loại</h3>
             </header>
 
             <div class="featured-collections-table">
+                <?php 
+                    $category = new Category_M();
+                    $store = $category->storeClient(10);
+                    while($set = $store->fetch()){ if($set['category_status']==4):
+                ?>
                 <div class="featured-collection shelf">
 
                     <h4 tabindex="0" class="featured-collection-header shelf__header">
-                        <a href="collections/888960/get-the-picture.html">Get The Picture!</a>
+                        <a href="category/<?php echo $set['category_id']?>"><?php echo $set['category_name']?></a>
                     </h4>
 
                     <div class="collections-block shelf__row">
+                    <?php 
+                            $query ="WHERE book_category = ".$set['category_id']." LIMIT 4";
+                            $books = new Book_M();
+                            $store = $books->readStatement($query);
+                            while($setBook = $store->fetch()){
+                        ?>
                         <div class="title-result" data-isbn="6093095">
-
-                            <div class=" type-icon icon-ebook"></div>
-
                             <div class="title-result__cover ">
 
                                 <a href="media/6093095/the-smart-cookie.html" data-ga-action="cover"
                                     data-ga-title="The Smart Cookie" data-id="6093095" aria-label="The Smart Cookie">
 
 
-                                    <img not-data-src="/Content/img/load.gif"
-                                        src="media/default-cover-image576b?title=The%20Smart%20Cookie" srcset=""
-                                        alt="cover image of The Smart Cookie" data-ga-action="cover"
-                                        data-title="The Smart Cookie" data-id="6093095"
-                                        onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image576b?title=The%20Smart%20Cookie';">
+                                    <img src="public/<?php echo $setBook['book_image']?>" alt="<?php echo $setBook['book_name']?>">
 
                                 </a>
                             </div>
                         </div>
-                        <div class="title-result" data-isbn="8729112">
-
-                            <div class=" type-icon icon-ebook"></div>
-
-                            <div class="title-result__cover ">
-
-                                <a href="media/8729112/some-bodies.html" data-ga-action="cover"
-                                    data-ga-title="Some Bodies" data-id="8729112" aria-label="Some Bodies">
-
-
-                                    <img not-data-src="Content/img/load.gif"
-                                        src="media/default-cover-imageffae?title=Some%20Bodies" srcset=""
-                                        alt="cover image of Some Bodies" data-ga-action="cover" data-title="Some Bodies"
-                                        data-id="8729112"
-                                        onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-imageffae?title=Some%20Bodies';">
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="title-result" data-isbn="7575281">
-
-                            <div class=" type-icon icon-ebook"></div>
-
-                            <div class="title-result__cover ">
-
-                                <a href="media/7575281/thats-not-my-name.html" data-ga-action="cover"
-                                    data-ga-title="That's Not My Name!" data-id="7575281"
-                                    aria-label="That's Not My Name!">
-
-
-                                    <img not-data-src="Content/img/load.gif"
-                                        src="media/default-cover-image67d1?title=That%27s%20Not%20My%20Name%21"
-                                        srcset="" alt="cover image of That's Not My Name!" data-ga-action="cover"
-                                        data-title="That's Not My Name!" data-id="7575281"
-                                        onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-image67d1?title=That%27s%20Not%20My%20Name%21';">
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="title-result" data-isbn="8958902">
-
-                            <div class="opacity-2 type-icon icon-ebook"></div>
-
-                            <div class="title-result__cover opacity-2">
-
-                                <a tabindex="-1" href="collections/888960/get-the-picture.html" data-ga-action="cover"
-                                    data-ga-title="Little Blue Truck Makes a Friend: a Friendship Book for Kids"
-                                    data-id="8958902"
-                                    aria-label="Little Blue Truck Makes a Friend: a Friendship Book for Kids">
-
-
-                                    <img not-data-src="Content/img/load.gif"
-                                        src="media/default-cover-imagee66a?title=Little%20Blue%20Truck%20Makes%20a%20Friend%3A%20a%20Friendship%20Book%20for%20Kids"
-                                        srcset=""
-                                        alt="cover image of Little Blue Truck Makes a Friend: a Friendship Book for Kids"
-                                        data-ga-action="cover"
-                                        data-title="Little Blue Truck Makes a Friend: a Friendship Book for Kids"
-                                        data-id="8958902"
-                                        onerror="this.onerror = null; this.srcset = ''; this.src = 'media/default-cover-imagee66a?title=Little%20Blue%20Truck%20Makes%20a%20Friend%3A%20a%20Friendship%20Book%20for%20Kids';">
-
-                                </a>
-                            </div>
-                            <a tabindex="0" class="featured-collection-see-all-link"
-                                href="collections/888960/get-the-picture.html">
-                                See all 31 titles
-                            </a>
-                        </div>
+                        <?php } ?>
                     </div>
                     <a class="mobile-featured-collection-see-all-link" href="collections/888960/get-the-picture.html">
-                        See all 31 titles
+                        Xem thêm
                     </a>
                 </div>
-                <div class="featured-collection shelf">
+                <?php endif; } ?>
+                <!-- <div class="featured-collection shelf">
 
                     <h4 tabindex="0" class="featured-collection-header shelf__header">
                         <a href="collections/887942/pack-your-ears-and-fill-up-your-phone-getting-ready-for.html">Pack
@@ -1234,7 +1005,7 @@
                         href="collections/868949/international-day-of-the-girl.html">
                         See all 20 titles
                     </a>
-                </div>
+                </div> -->
             </div>
 
         </div>

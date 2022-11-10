@@ -128,15 +128,15 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <?php if($set['category_status'] =='Hiện') {?>
+                                            <?php if($set['category_status'] ==4) {?>
                                             <span class="badge bg-success me-1"></span>
-                                            <?php echo $set['category_status']?>
-                                            <?php }elseif($set['category_status'] =='Ẩn'){?>
+                                            <?php echo $set['status_name']?>
+                                            <?php }elseif($set['category_status'] ==5){?>
                                             <span class="badge bg-danger me-1"></span>
-                                            <?php echo $set['category_status']?>
+                                            <?php echo $set['status_name']?>
                                             <?php }else{ ?>
                                             <span class="badge bg-warning me-1"></span>
-                                            <?php echo $set['category_status']?>
+                                            <?php echo $set['status_name']?>
                                             <?php }?>
                                         </td>
                                         <td class="text-end">
@@ -145,18 +145,18 @@
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                     Động</button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <?php if ($set['category_status'] =='Hiện') { ?>
+                                                    <?php if ($set['category_status'] == 4) { ?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Category/invisible.php?id=<?php echo $set['category_id']?>">
                                                         Ẩn
                                                     </a>
-                                                    <?php } if ($set['category_status'] =='Ẩn') {?>
+                                                    <?php } if ($set['category_status'] == 5) {?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Category/visible.php?id=<?php echo $set['category_id']?>">
                                                         Hiện
                                                     </a>
                                                     <?php } ?>
-                                                    <a class="dropdown-item"
+                                                    <a class="dropdown-item" onclick=" return confirm('Bạn có chắc chắn muốn xóa?')"
                                                         href="http://localhost:8001/src/Controllers/Category/delete.php?id=<?php echo $set['category_id']?>">
                                                         Xóa
                                                     </a>

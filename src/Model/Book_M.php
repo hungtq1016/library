@@ -25,17 +25,31 @@
         public function read($id)
         {
             $db = new connect();
-            $query = "SELECT * FROM books WHERE book_id= $id";
+            $query = "SELECT * FROM books 
+                    INNER JOIN authors ON books.book_author = authors.author_id
+                    INNER JOIN category ON books.book_category = category.category_id
+                    WHERE book_id= $id";
             $response = $db->getInstance($query);
             return $response;
         }
 
-        public function update($name,$category,$stock,$image,$author,$id)
+        public function readStatement($statement)
         {
-            $query = "UPDATE books SET book_name = ?,book_category =? ,book_stock =? ,book_image=? ,book_author=? WHERE book_id=? ";
+            $db = new connect();
+            $query = "SELECT books.*,category.category_name,authors.author_name FROM books 
+                    INNER JOIN authors ON books.book_author = authors.author_id
+                    INNER JOIN category ON books.book_category = category.category_id
+                    $statement";
+            $response = $db->getList($query);
+            return $response;
+        }
+
+        public function update($name,$category,$stock,$image,$author,$status,$id)
+        {
+            $query = "UPDATE books SET book_name = ?,book_category =? ,book_stock =? ,book_image=? ,book_author=?,book_status=? WHERE book_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute([$name,$category,$stock,$image,$author,$id]);
+            $update->execute([$name,$category,$stock,$image,$author,$status,$id]);
         }
 
         public function update_visible($id)

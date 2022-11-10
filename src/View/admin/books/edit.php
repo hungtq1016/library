@@ -52,7 +52,11 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Năm Phát Hành</label>
-                                                <input type="date" class="form-control" name="date">
+                                                <select class="form-select" name="year">
+                                                    <?php for($i=date("Y");$i>=1900;$i--):?>
+                                                    <option value=<?php echo $i?>><?php echo $i?></option>
+                                                    <?php endfor?>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Hình Ảnh</label>
@@ -62,15 +66,27 @@
                                             <div class="mb-3">
                                                 <div class="form-label">Tác Giả</div>
                                                 <select class="form-select" name="author">
-                                                    <option value=<?php echo $read['book_author']?>>
-                                                        <?php echo $read["book_author"]?></option>
+                                                    <option value=<?php echo $read['author_id']?> selected><?php echo $read["author_name"]?></option>
+                                                    <?php 
+                                                        $authors = new Author_M();
+                                                        $store = $authors->store();
+                                                        while($set = $store->fetch()): if($set['author_id']!=$read['author_id']):
+                                                    ?>
+                                                    <option value=<?php echo $set['author_id']?>><?php echo $set["author_name"]?></option>
+                                                    <?php endif;endwhile?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-label">Thể Loại</div>
                                                 <select class="form-select" name="category">
-                                                    <option value=<?php echo $read["book_category"]?>>
-                                                        <?php echo $read["book_category"]?></option>
+                                                    <option value=<?php echo $read["category_id"]?> selected><?php echo $read["category_name"]?></option>
+                                                    <?php 
+                                                        $category = new Category_M();
+                                                        $store = $category->store();
+                                                        while($set = $store->fetch()): if($set['category_id']!=$read['category_id']):
+                                                    ?>
+                                                    <option value=<?php echo $set['category_id']?>><?php echo $set["category_name"]?></option>
+                                                    <?php endif;endwhile?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">

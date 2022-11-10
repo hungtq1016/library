@@ -7,15 +7,17 @@
         public function store()
         {
             $db = new connect();
-            $query = 'SELECT * FROM category';
+            $query = 'SELECT * FROM category
+                    INNER JOIN code ON category.category_status = code.status_code';
             $response = $db->getList($query);
             return $response;
         }
 
-        public function storeClient()
+        public function storeClient($limit)
         {
             $db = new connect();
-            $query = 'SELECT category_name FROM category LIMIT 15';
+            $query = "SELECT category.* FROM category 
+                    INNER JOIN code ON category.category_status = code.status_code LIMIT $limit";
             $response = $db->getList($query);
             return $response;
         }
@@ -34,19 +36,28 @@
             $response = $db->getInstance($query);
             return $response;
         }
+
+        public function update($name,$id)
+        {
+            $query = "UPDATE category SET category_name = ? WHERE category_id=? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([$name,$id]);
+        }
+
         public function update_visible($id)
         {
             $query = "UPDATE category SET category_status = ? WHERE category_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute(["Hiện",$id]);
+            $update->execute([4,$id]);
         }
         public function update_invisible($id)
         {
             $query = "UPDATE category SET category_status = ? WHERE category_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute(["Ẩn",$id]);
+            $update->execute([5,$id]);
         }
         public function delete($id)
         {
