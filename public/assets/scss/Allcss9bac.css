@@ -37,6 +37,11 @@
     padding: 1rem 0
 }
 
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .dismiss {
     display: inline-block;
     vertical-align: top;
