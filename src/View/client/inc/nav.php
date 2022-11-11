@@ -1,92 +1,93 @@
 <header class="u_masthead" role="navigation">
-            <div class="upperNav">
-                <div class="l-container">
-                    <ul class="u_nav">
-                        <li class="u_nav__item u_nav__item-link u_nav__find-a-library">
-                            <a href="libraries.html"><span class="icon icon-locate-pin"></span> Tra Cứu Sách Mượn</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <div class="upperNav">
+        <div class="l-container">
+            <ul class="u_nav">
+                <li class="u_nav__item u_nav__item-link u_nav__find-a-library">
+                    <a href="libraries.html"><span class="icon icon-locate-pin"></span> Tra Cứu Sách Mượn</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-            <div class="mainNav l-container">
-                <a href="#" class="u_masthead__logo" aria-label="Home" tabindex="0">
-                </a>
+    <div class="mainNav l-container">
+        <a href="/" class="u_masthead__logo" aria-label="Home" tabindex="0">
+            <img src="/public/images/logo.png" alt="logo" style="width: 60px;">
+        </a>
 
-                <button class="toggle-nav" aria-label="Open navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="40"
-                        height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="4" y1="6" x2="20" y2="6"></line>
-                        <line x1="4" y1="12" x2="20" y2="12"></line>
-                        <line x1="4" y1="18" x2="20" y2="18"></line>
-                    </svg>
-                </button>
+        <button class="toggle-nav" aria-label="Open navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="40" height="40"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </button>
 
-                <div class="u_nav__dropdown hide">
-                    <ul class="u_nav pages desktopNav nav-f">
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="/tra-cuu">Tra Cứu Sách</a>
-                        </li>
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="apps.html">Thể Loại</a>
-                        </li>
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="https://libbylife.com">Đăng Ký Mượn</a>
-                        </li>
-                    </ul>
+        <div class="u_nav__dropdown hide">
+            <ul class="u_nav pages desktopNav nav-f">
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="/tra-cuu">Tra Cứu Sách</a>
+                </li>
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="apps.html">Thể Loại</a>
+                </li>
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="/muon">Đăng Ký Mượn</a>
+                </li>
+            </ul>
 
-                    <div class="u_search masthead_search" id="search">
-                        <form action="https://www.Thư Viện.com/search"
-                            class="u_search__form libbyBlogLinkStylingUpdates" method="get">
-                            <div class="u_search__form-cell-1">
-                                <label id="search-label" for="searchInput" style="display: none">Tìm Kiếm</label>
-                                <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off"
-                                    spellcheck="false" id="searchInput" name="q" class="typeahead u_search__query"
-                                    maxlength="250" placeholder="Tìm Sách" value="" aria-labelledby="search-label" />
-                            </div>
-                            <div class="u_search__form-cell-3">
-                                <button class="u_search__submit" tabindex="-1" value="" aria-label="Search">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
-                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="black"
-                                        fill="#fff" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="10" cy="10" r="7"></circle>
-                                        <line x1="21" y1="21" x2="15" y2="15"></line>
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
+            <div class="u_search masthead_search" id="search">
+                <form action="https://www.Thư Viện.com/search" class="u_search__form libbyBlogLinkStylingUpdates"
+                    method="get">
+                    <div class="u_search__form-cell-1">
+                        <label id="search-label" for="searchInput" style="display: none">Tìm Kiếm</label>
+                        <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off"
+                            spellcheck="false" id="searchInput" name="q" class="typeahead u_search__query"
+                            maxlength="250" placeholder="Tìm Sách" value="" aria-labelledby="search-label" />
                     </div>
-
-                    <ul class="u_nav pages mobileNav">
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="/tra-cuu">Tra Cứu Sách </a>
-                        </li>
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="apps.html">Thể Loại</a>
-                        </li>
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="https://libbylife.com/">Đăng Ký Mượn</a>
-                        </li>
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="account/sign-in823e.html?returnUrl=%2F">Sách mượn: <span>0</span></a>
-                        </li>
-                    </ul>
-
-                    <ul class="u_nav desktopNav">
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="account/sign-in823e.html?returnUrl=%2F">Sách mượn: <span>0</span></a>
-                        </li>
-                    </ul>
-
-                    <ul class="u_nav lowerNav">
-                        <li class="u_nav__item u_nav__item-link">
-                            <a href="libraries.html"><span class="icon icon-locate-pin" aria-hidden="true"></span>Tra
-                                Cứu Sách Mượn</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="u_search__form-cell-3">
+                        <button class="u_search__submit" tabindex="-1" value="" aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="black" fill="#fff"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <circle cx="10" cy="10" r="7"></circle>
+                                <line x1="21" y1="21" x2="15" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
             </div>
-        </header>
+
+            <ul class="u_nav pages mobileNav">
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="/tra-cuu">Tra Cứu Sách </a>
+                </li>
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="apps.html">Thể Loại</a>
+                </li>
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="https://libbylife.com/">Đăng Ký Mượn</a>
+                </li>
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="account/sign-in823e.html?returnUrl=%2F">Sách mượn: <span>0</span></a>
+                </li>
+            </ul>
+
+            <ul class="u_nav desktopNav">
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="account/sign-in823e.html?returnUrl=%2F">Sách mượn: <span>0</span></a>
+                </li>
+            </ul>
+
+            <ul class="u_nav lowerNav">
+                <li class="u_nav__item u_nav__item-link">
+                    <a href="libraries.html"><span class="icon icon-locate-pin" aria-hidden="true"></span>Tra
+                        Cứu Sách Mượn</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

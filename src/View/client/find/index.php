@@ -40,7 +40,7 @@
             ?>
             <div class="title-result">
                 <div class="title-result__cover">
-                    <a href="/book/<?php echo $set['book_id']?> "data-ga-action="cover"
+                    <a href="sach/<?php echo $set['book_id']?> "data-ga-action="cover"
                         data-ga-title="<?php echo $set['book_name']?>" data-id="<?php echo $set['book_id']?>" aria-label="<?php echo $set['book_name']?>">
                         <img src="public/<?php echo $set['book_image']?>" alt="<?php echo $set['book_name']?>">
                     </a>
@@ -48,7 +48,7 @@
 
                 <div class="title-result__details">
                     <h4 class="title-result__title">
-                        <a href="/book/<?php echo $set['book_id']?>" data-ga-action="cover"
+                        <a href="sach/<?php echo $set['book_id']?>" data-ga-action="cover"
                             data-title="<?php echo $set['book_name']?>" data-id="<?php echo $set['book_id']?>">
                             <?php echo $set['book_name']?>
                         </a>
@@ -73,7 +73,7 @@
                 <div class="featured-collection shelf">
 
                     <h4 tabindex="0" class="featured-collection-header shelf__header">
-                        <a href="category/<?php echo $set['category_id']?>"><?php echo $set['category_name']?></a>
+                        <a href="the-loai/<?php echo $set['category_id']?>"><?php echo $set['category_name']?></a>
                     </h4>
 
                     <div class="row-title">
@@ -86,13 +86,13 @@
                             $i++;
                         ?>
                         <div class="title-result__cover ">
-                            <a href="book/<?php echo $setBook['book_id']?>" data-ga-action="cover"
+                            <a href="sach/<?php echo $setBook['book_id']?>" data-ga-action="cover"
                                 data-ga-title="<?php echo $setBook['book_name']?>" data-id="<?php echo $setBook['book_id']?>" aria-label="<?php echo $setBook['book_name']?>">
                                 <img src="public/<?php echo $setBook['book_image']?>" alt="<?php echo $setBook['book_name']?>">
                              </a>
                              <?php if($i==4):?>
                             <a class="see-more"
-                                href="category/<?php echo $set['category_id']?>">
+                                href="the-loai/<?php echo $set['category_id']?>">
                                 Xem Thêm
                             </a>
                             <?php endif ?>

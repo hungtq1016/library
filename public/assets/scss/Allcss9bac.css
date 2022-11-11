@@ -41,7 +41,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-
+.form-loan{
+    padding: 20px 0;
+}
 .dismiss {
     display: inline-block;
     vertical-align: top;

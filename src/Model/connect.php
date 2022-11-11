@@ -26,6 +26,12 @@ class connect
 		// echo $results;
 		return($results);
 	}
+	public function getId()
+	{
+		$results=$this->db->lastInsertId( );
+		// echo $results;
+		return($results);
+	}
 //	https://viblo.asia/p/cai-dat-ung-dung-php-thuan-su-dung-mvc-va-oop-4P856aA3lY3
 	public function exec($query)
 	{

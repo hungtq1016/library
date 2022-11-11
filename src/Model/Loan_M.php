@@ -31,6 +31,23 @@
             return $response;
         }
 
+        public function createDetail($loan,$book,$status)
+        {
+            $query = "INSERT INTO loans_detail(ld_loan,ld_book,ld_status) VALUES (?,?,?)";
+            $db = new connect();
+            $create=$db->excePrepare($query);
+            $create->execute([$loan,$book,$status]);   
+        }
+
+        public function create($user,$start,$end,$fine,$status)
+        {
+            $query = "INSERT INTO loans(loan_user,loan_start,loan_end,loan_fine,loan_status) VALUES (?,?,?,?,?)";
+            $db = new connect();
+            $create=$db->excePrepare($query);
+            $create->execute([$user,$start,$end,$fine,$status]);   
+            return $db->getId();
+        }
+
         public function readFine($id)
         {
             $db = new connect();

@@ -83,11 +83,6 @@ body {
     overflow: initial
 }
 
-.u_masthead__logo {
-    float: none;
-    width: 218px
-}
-
 .u_masthead__logo img {
     display: block;
     position: relative;
