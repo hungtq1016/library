@@ -84,6 +84,16 @@
                                                 <input type="number" class="form-control" name="stock" value="1"
                                                     min="0">
                                             </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Ke</label>
+                                                <input type="number" class="form-control" name="shelf" value="1"
+                                                    min="0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Khoa</label>
+                                                <input type="text" class="form-control" name="major"
+                                                    min="0">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -92,7 +92,17 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Số Lượng</label>
                                                 <input type="number" class="form-control" name="stock"
-                                                    value="<?php echo $read["book_stock"]?>" min="0">
+                                                    value="<?php echo $read["book_qty"]?>" min="0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Ke</label>
+                                                <input type="number" class="form-control" name="shelf"
+                                                    value="<?php echo $read["book_shelf"]?>" min="0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Khoa</label>
+                                                <input type="text" class="form-control" name="major"
+                                                    value="<?php echo $read["book_major"]?>" min="0">
                                             </div>
                                         </div>
                                     </div>

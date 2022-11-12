@@ -96,192 +96,40 @@
                 <h3 class="shelf__header-text">
 
                     <a href="/collections/11016/the-new-york-times-best-sellers">
-                        The New York Times Best Sellers
+                        Sách Nổi Bật Theo Ngành
                     </a>
 
                 </h3>
-
-                <div class="shelf__description">
-                    The NYT best selling fiction and nonfiction books. November 13, 2022
-                </div>
-
             </header>
 
             <div class="shelf__row">
-
-                <div class="title-result" data-isbn="2461050">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/2461050/it-ends-with-us" data-ga-action="cover" data-ga-title="It Ends with Us"
-                            data-id="2461050" aria-label="It Ends with Us">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0439-1/{02538BFD-3E57-409F-B1D3-1B698003AD85}IMG400.JPG"
-                                srcset="" alt="cover image of It Ends with Us" data-ga-action="cover"
-                                data-title="It Ends with Us" data-id="2461050"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=It%20Ends%20with%20Us';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/2461050/it-ends-with-us" data-ga-action="cover" data-title="It Ends with Us"
-                                data-id="2461050">
-                                It Ends with Us
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Colleen Hoover (2016)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="8670327">
-
-                    <div class="type-icon icon-audiobook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8670327/no-plan-b" data-ga-action="cover" data-ga-title="No Plan B"
-                            data-id="8670327" aria-label="No Plan B">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/1191-1/{D32D0CE3-0123-4409-932A-00D8095B370C}IMG400.JPG"
-                                srcset="" alt="cover image of No Plan B" data-ga-action="cover" data-title="No Plan B"
-                                data-id="8670327"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=No%20Plan%20B';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8670327/no-plan-b" data-ga-action="cover" data-title="No Plan B"
-                                data-id="8670327">
-                                No Plan B
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Lee Child · Andrew Child (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="7115460">
+                <?php 
+                    $books = new Book_M();
+                    $store = $books->readStatement('WHERE book_major<>"Không" ORDER BY book_instock DESC LIMIT 6');
+                    while($set = $store->fetch()):
+                ?>
+                <div class="title-result">
 
                     <div class="type-icon icon-ebook"></div>
 
                     <div class="title-result__cover">
-                        <a href="/media/7115460/verity" data-ga-action="cover" data-ga-title="Verity" data-id="7115460"
-                            aria-label="Verity">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0017-1/8A1/707/C6/{8A1707C6-9FC9-43B4-B4B1-0492E651145A}Img400.jpg"
-                                srcset="" alt="cover image of Verity" data-ga-action="cover" data-title="Verity"
-                                data-id="7115460"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=Verity';">
-
+                        <a href="/sach/<?php echo $set['book_id']?>" data-ga-action="cover" data-ga-title="<?php echo $set['book_name']?>"
+                            data-id="<?php echo $set['book_id']?>" aria-label="<?php echo $set['book_name']?>">
+                            <img src="/public/<?php echo $set['book_image']?>" alt="<?php echo $set['book_name']?>">
                         </a>
                     </div>
 
                     <div class="title-result__details">
                         <h4 class="title-result__title">
-                            <a href="/media/7115460/verity" data-ga-action="cover" data-title="Verity"
-                                data-id="7115460">
-                                Verity
+                            <a href="/sach/<?php echo $set['book_id']?>" data-ga-action="cover" data-title="<?php echo $set['book_name']?>"
+                                data-id="<?php echo $set['book_id']?>">
+                                <?php echo $set['book_name']?>
                             </a>
                         </h4>
-                        <h5 class="title-result__creator">Colleen Hoover (2021)</h5>
+                        <h5 class="title-result__creator"><?php echo $set['author_name']?> (2022)</h5>
                     </div>
                 </div>
-
-                <div class="title-result" data-isbn="8783654">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8783654/it-starts-with-us" data-ga-action="cover"
-                            data-ga-title="It Starts with Us" data-id="8783654" aria-label="It Starts with Us">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0439-1/{2601B4F1-416A-4C50-8CA5-69BE94167DAE}IMG400.JPG"
-                                srcset="" alt="cover image of It Starts with Us" data-ga-action="cover"
-                                data-title="It Starts with Us" data-id="8783654"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=It%20Starts%20with%20Us';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8783654/it-starts-with-us" data-ga-action="cover"
-                                data-title="It Starts with Us" data-id="8783654">
-                                It Starts with Us
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Colleen Hoover (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="8988735">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8988735/the-boys-from-biloxi" data-ga-action="cover"
-                            data-ga-title="The Boys from Biloxi" data-id="8988735" aria-label="The Boys from Biloxi">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0111-1/{81BD05FB-8F70-4399-AE7F-33776C91DCD7}IMG400.JPG"
-                                srcset="" alt="cover image of The Boys from Biloxi" data-ga-action="cover"
-                                data-title="The Boys from Biloxi" data-id="8988735"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=The%20Boys%20from%20Biloxi';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8988735/the-boys-from-biloxi" data-ga-action="cover"
-                                data-title="The Boys from Biloxi" data-id="8988735">
-                                The Boys from Biloxi
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">John Grisham (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="4003416">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/4003416/fire-blood" data-ga-action="cover" data-ga-title="Fire &amp; Blood"
-                            data-id="4003416" aria-label="Fire &amp; Blood">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0111-1/A93/D24/E3/{A93D24E3-44D0-4483-B7A9-DE666763B095}Img400.jpg"
-                                srcset="" alt="cover image of Fire &amp; Blood" data-ga-action="cover"
-                                data-title="Fire &amp; Blood" data-id="4003416"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=Fire%20%26%20Blood';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/4003416/fire-blood" data-ga-action="cover" data-title="Fire &amp; Blood"
-                                data-id="4003416">
-                                Fire &amp; Blood
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">George R. R. Martin · Doug Wheatley (2018)</h5>
-                    </div>
-                </div>
+                <?php endwhile?>
             </div>
         </div>
     </div>
@@ -292,195 +140,40 @@
                 <h3 class="shelf__header-text">
 
                     <a href="/collections/4848/recommended-reads">
-                        Recommended Reads
+                        Thơ Và Tiểu Thuyết Nổi Bật
                     </a>
 
                 </h3>
 
-                <div class="shelf__description">
-                    OverDrive's Rachel Kray selects her books of the moment.
-                </div>
-
             </header>
 
             <div class="shelf__row">
-
-                <div class="title-result" data-isbn="8783517">
+                <?php 
+                    $store2 = $books->readStatement('WHERE book_major="Không" ORDER BY book_instock DESC LIMIT 6');
+                    while($set = $store2->fetch()):
+                ?>
+                <div class="title-result">
 
                     <div class="type-icon icon-ebook"></div>
 
                     <div class="title-result__cover">
-                        <a href="/media/8783517/flight-risk-a-novel" data-ga-action="cover"
-                            data-ga-title="Flight Risk: a Novel" data-id="8783517" aria-label="Flight Risk: a Novel">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0439-1/{CE5E3A1A-BC24-4AF9-9FE7-D2C1498BD379}IMG400.JPG"
-                                srcset="" alt="cover image of Flight Risk: a Novel" data-ga-action="cover"
-                                data-title="Flight Risk: a Novel" data-id="8783517"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=Flight%20Risk%3A%20a%20Novel';">
-
+                        <a href="/sach/<?php echo $set['book_id']?>" data-ga-action="cover" data-ga-title="<?php echo $set['book_name']?>"
+                            data-id="<?php echo $set['book_id']?>" aria-label="<?php echo $set['book_name']?>">
+                            <img src="/public/<?php echo $set['book_image']?>" alt="<?php echo $set['book_name']?>">
                         </a>
                     </div>
 
                     <div class="title-result__details">
                         <h4 class="title-result__title">
-                            <a href="/media/8783517/flight-risk-a-novel" data-ga-action="cover"
-                                data-title="Flight Risk: a Novel" data-id="8783517">
-                                Flight Risk: a Novel
+                            <a href="/sach/<?php echo $set['book_id']?>" data-ga-action="cover" data-title="<?php echo $set['book_name']?>"
+                                data-id="<?php echo $set['book_id']?>">
+                                <?php echo $set['book_name']?>
                             </a>
                         </h4>
-                        <h5 class="title-result__creator">Cherie Priest (2022)</h5>
+                        <h5 class="title-result__creator"><?php echo $set['author_name']?> (2022)</h5>
                     </div>
                 </div>
-
-                <div class="title-result" data-isbn="8784270">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8784270/trespasses" data-ga-action="cover" data-ga-title="Trespasses"
-                            data-id="8784270" aria-label="Trespasses">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/1523-1/B4D/060/E7/{B4D060E7-70B3-435C-909D-52598CBD0A72}Img400.jpg"
-                                srcset="" alt="cover image of Trespasses" data-ga-action="cover" data-title="Trespasses"
-                                data-id="8784270"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=Trespasses';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8784270/trespasses" data-ga-action="cover" data-title="Trespasses"
-                                data-id="8784270">
-                                Trespasses
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Louise Kennedy (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="8437651">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8437651/someday-maybe" data-ga-action="cover" data-ga-title="Someday, Maybe"
-                            data-id="8437651" aria-label="Someday, Maybe">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/1071-1/{6E504F9D-DFE1-40FD-9F39-37B029DDAB4F}IMG400.JPG"
-                                srcset="" alt="cover image of Someday, Maybe" data-ga-action="cover"
-                                data-title="Someday, Maybe" data-id="8437651"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=Someday%2C%20Maybe';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8437651/someday-maybe" data-ga-action="cover" data-title="Someday, Maybe"
-                                data-id="8437651">
-                                Someday, Maybe
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Onyi Nwabineli (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="8328784">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8328784/the-prisoner" data-ga-action="cover" data-ga-title="The Prisoner"
-                            data-id="8328784" aria-label="The Prisoner">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/2390-1/{CCAFDBCE-B939-41F3-A65A-3C9419AD6634}IMG400.JPG"
-                                srcset="" alt="cover image of The Prisoner" data-ga-action="cover"
-                                data-title="The Prisoner" data-id="8328784"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=The%20Prisoner';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8328784/the-prisoner" data-ga-action="cover" data-title="The Prisoner"
-                                data-id="8328784">
-                                The Prisoner
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">B.A. Paris (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="7454781">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/7454781/none-of-this-would-have-happened-if-prince-were-alive"
-                            data-ga-action="cover" data-ga-title="None of This Would Have Happened If Prince Were Alive"
-                            data-id="7454781" aria-label="None of This Would Have Happened If Prince Were Alive">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0439-1/{744A6E44-4DA8-44E6-A7E2-D8FC95221516}IMG400.JPG"
-                                srcset="" alt="cover image of None of This Would Have Happened If Prince Were Alive"
-                                data-ga-action="cover"
-                                data-title="None of This Would Have Happened If Prince Were Alive" data-id="7454781"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=None%20of%20This%20Would%20Have%20Happened%20If%20Prince%20Were%20Alive';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/7454781/none-of-this-would-have-happened-if-prince-were-alive"
-                                data-ga-action="cover"
-                                data-title="None of This Would Have Happened If Prince Were Alive" data-id="7454781">
-                                None of This Would Have Happened If Prince Were Alive
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">Carolyn Prusa (2022)</h5>
-                    </div>
-                </div>
-
-                <div class="title-result" data-isbn="8839161">
-
-                    <div class="type-icon icon-ebook"></div>
-
-                    <div class="title-result__cover">
-                        <a href="/media/8839161/the-world-we-make" data-ga-action="cover"
-                            data-ga-title="The World We Make" data-id="8839161" aria-label="The World We Make">
-
-
-                            <img not-data-src="/Content/img/load.gif"
-                                src="https://img1.od-cdn.com/ImageType-400/0017-1/{1C172D2A-972F-42B0-8BF6-1AF0181CF941}IMG400.JPG"
-                                srcset="" alt="cover image of The World We Make" data-ga-action="cover"
-                                data-title="The World We Make" data-id="8839161"
-                                onerror="this.onerror = null; this.srcset = ''; this.src = '/media/default-cover-image?title=The%20World%20We%20Make';">
-
-                        </a>
-                    </div>
-
-                    <div class="title-result__details">
-                        <h4 class="title-result__title">
-                            <a href="/media/8839161/the-world-we-make" data-ga-action="cover"
-                                data-title="The World We Make" data-id="8839161">
-                                The World We Make
-                            </a>
-                        </h4>
-                        <h5 class="title-result__creator">N. K. Jemisin (2022)</h5>
-                    </div>
-                </div>
+                <?php endwhile?>
             </div>
         </div>
     </div>

@@ -128,16 +128,12 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <?php if($set['category_status'] ==4) {?>
+                                            <?php if($set['category_status'] ==6){?>
                                             <span class="badge bg-success me-1"></span>
-                                            <?php echo $set['status_name']?>
-                                            <?php }elseif($set['category_status'] ==5){?>
+                                            <?php echo $set['status_name'];}?>
+                                            <?php if($set['category_status'] ==7){?>
                                             <span class="badge bg-danger me-1"></span>
-                                            <?php echo $set['status_name']?>
-                                            <?php }else{ ?>
-                                            <span class="badge bg-warning me-1"></span>
-                                            <?php echo $set['status_name']?>
-                                            <?php }?>
+                                            <?php echo $set['status_name'];}?>
                                         </td>
                                         <td class="text-end">
                                             <span class="dropdown">
@@ -145,12 +141,12 @@
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                     Động</button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <?php if ($set['category_status'] == 4) { ?>
+                                                    <?php if ($set['category_status'] == 6) { ?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Category/invisible.php?id=<?php echo $set['category_id']?>">
                                                         Ẩn
                                                     </a>
-                                                    <?php } if ($set['category_status'] == 5) {?>
+                                                    <?php } if ($set['category_status'] == 7) {?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Category/visible.php?id=<?php echo $set['category_id']?>">
                                                         Hiện

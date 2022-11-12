@@ -6,7 +6,7 @@ include_once '../../Model/Log_M.php';
                  * Data được gửi từ form bên view -> category -> add.php
                  */
                 $name=$_POST['name'];
-                $status =4;
+                $status =6;
                 $category = new Category_M();
 
                 $check = $category->isExist($name);

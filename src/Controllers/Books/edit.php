@@ -10,6 +10,8 @@
                 $author=$_POST['author'];
                 $category=$_POST['category'];
                 $stock=$_POST['stock'];
+                $major=$_POST['major'];
+                $shelf=$_POST['shelf'];
                 $id=$_POST['hiddenId'];
                 $image=$_POST['hiddenImg'];
                 
@@ -20,7 +22,7 @@
                 if ($_FILES['image']['name'] == '') {
                     
                     $book = new Book_M();
-                    $book->update($name,$category,$stock,$image,$author,$status,$id);
+                    $book->update($name,$category,$stock,$image,$author,$status,$major,$shelf,$id);
                     
                     $user = json_decode(base64_decode($_COOKIE['user']), true);
                     $log = new Log_M();
@@ -42,7 +44,7 @@
                         move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
                         // Thêm vào DB
                             $book = new Book_M();
-                            $book->update($name,$category,$stock,'books/'.$randName,$author,$status,$id);
+                            $book->update($name,$category,$stock,'books/'.$randName,$author,$status,$major,$shelf,$id);
 
                             $user = json_decode(base64_decode($_COOKIE['user']), true);
                             $log = new Log_M();

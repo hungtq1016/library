@@ -144,9 +144,11 @@
                                             <span class="badge bg-success me-1"></span> <?php echo $set['status_name']?>
                                             <?php }elseif($set['loan_status'] ==1){?>
                                             <span class="badge bg-warning me-1"></span> <?php echo $set['status_name']?>
-                                            <?php }else{ ?>
-                                            <span class="badge bg-danger me-1"></span> <?php echo $set['status_name']?>
-                                            <?php }?>
+                                            <?php }else if($set['loan_status']==4){ ?>
+                                            <span class="badge bg-info me-1"></span> <?php echo $set['status_name']?>
+                                            <?php }else{?>
+                                                <span class="badge bg-danger me-1"></span> <?php echo $set['status_name']?>
+                                                <?php }?>
                                         </td>
                                         <td class="text-end">
                                             <span class="dropdown">
@@ -163,12 +165,17 @@
                                                         href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
                                                         Báo Mất
                                                     </a>
-                                                    <?php }else if($set['loan_status'] >1){ ?>
+                                                    <?php }else if($set['loan_status'] ==2 &&$set['loan_status'] ==3){ ?>
                                                     <a class="dropdown-item"
                                                         href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
                                                         Xem Vé Phạt
                                                     </a>
-                                                    <?php } ?>
+                                                    <?php }else{ ?>
+                                                        <a class="dropdown-item"
+                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        Xác Nhận Mượn
+                                                    </a>
+                                                    <?php }?>
                                                 </div>
                                             </span>
                                         </td>
@@ -205,7 +212,7 @@
 $(document).ready(function(){
   $(".show-detail").click(function(){
     var id = $(this).data('id');
-    $.ajax({url: "src/Controllers/Loan/detail.php?id="+id, success: function(result){
+    $.ajax({url: "http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Loan/detail.php?id="+id, success: function(result){
       $("#result").html(result);
     }});
   });

@@ -14,12 +14,12 @@
             return $response;
         }
 
-        public function create($name,$category,$stock,$image,$author,$status)
+        public function create($name,$category,$qty,$image,$author,$status,$major,$shelf,$instock)
         {
-            $query = "INSERT INTO books(book_name,book_category,book_stock,book_image,book_author,book_status) VALUES (?,?,?,?,?,?)";
+            $query = "INSERT INTO books(book_name,book_category,book_qty,book_image,book_author,book_status,book_major,book_shelf,book_instock) VALUES (?,?,?,?,?,?,?,?,?)";
             $db = new connect();
             $create=$db->excePrepare($query);
-            $create->execute([$name,$category,$stock,$image,$author,$status]);
+            $create->execute([$name,$category,$qty,$image,$author,$status,$major,$shelf,$instock]);
         }
 
         public function read($id)
@@ -44,12 +44,12 @@
             return $response;
         }
 
-        public function update($name,$category,$stock,$image,$author,$status,$id)
+        public function update($name,$category,$qty,$image,$author,$status,$major,$shelf,$id)
         {
-            $query = "UPDATE books SET book_name = ?,book_category =? ,book_stock =? ,book_image=? ,book_author=?,book_status=? WHERE book_id=? ";
+            $query = "UPDATE books SET book_name = ?,book_category =? ,book_qty =? ,book_image=? ,book_author=?,book_status=?,book_major=?,book_shelf=? WHERE book_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute([$name,$category,$stock,$image,$author,$status,$id]);
+            $update->execute([$name,$category,$qty,$image,$author,$status,$major,$shelf,$id]);
         }
 
         public function update_visible($id)

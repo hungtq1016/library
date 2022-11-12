@@ -11,6 +11,8 @@ if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) &&
     $author = $_POST['author'];
     $category = $_POST['category'];
     $stock = $_POST['stock'];
+    $shelf = $_POST['shelf'];
+    $major = $_POST['major'];
     $status = "Hiện";
     $book = new Book_M();
     $check = $book->isExist($name);
@@ -43,7 +45,7 @@ if (isset($_POST['name']) && isset($_POST['date']) && isset($_POST['author']) &&
             //Chuyển file tới public/uploads trên server để lưu ảnh
             move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
             // Thêm vào DB
-            $book->create($name, $category, $stock, 'books/' . $randName, $author, $status);
+            $book->create($name, $category, $stock, 'books/' . $randName, $author, $status,$major,$shelf,0);
             $user = json_decode(base64_decode($_COOKIE['user']) , true);
             $log = new Log_M();
             $log->create($user[1], "đã <span class='text-success'>thêm</span> <b>" . $name . "</b> vào sách.", $user[3]);

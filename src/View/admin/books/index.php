@@ -143,7 +143,7 @@
                                             <?php echo $set['category_name']?>
                                         </td>
                                         <td>
-                                            <?php echo $set['book_stock']?>
+                                            <?php echo $set['book_qty']?>
                                         </td>
                                         <td>
                                             <?php echo $set['author_name']?>

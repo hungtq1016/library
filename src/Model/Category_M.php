@@ -50,14 +50,14 @@
             $query = "UPDATE category SET category_status = ? WHERE category_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute([4,$id]);
+            $update->execute([6,$id]);
         }
         public function update_invisible($id)
         {
             $query = "UPDATE category SET category_status = ? WHERE category_id=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
-            $update->execute([5,$id]);
+            $update->execute([7,$id]);
         }
         public function delete($id)
         {
