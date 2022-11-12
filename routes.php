@@ -33,6 +33,8 @@ get('/admin/login', 'src/View/admin/login.php');
 
 get('/', 'src/View/client/home/index.php');
 get('/sach/$id', 'src/View/client/book/index.php');
+get('/the-loai/$id', 'src/View/client/category/index.php');
+
 get('/tra-cuu', 'src/View/client/find/index.php');
 get('/muon', 'src/View/client/loan/index.php');
 

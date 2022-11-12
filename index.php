@@ -35,9 +35,10 @@
 <?php include_once 'src/View/client/inc/header.php';?>
 <body>
     <?php include_once 'src/View/client/inc/nav.php';?>
-    <div class="container" role="main" style="margin-top: 0">
-    <?php include_once 'routes.php'?>
+    <div class="container-fluid">
+      <?php include_once 'routes.php'?>
     </div>
+    
 </body>
 
 </html>

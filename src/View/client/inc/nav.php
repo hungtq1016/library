@@ -31,13 +31,13 @@
                     <a href="/">Trang Chủ</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/tra-cuu">Tra Cứu Sách</a>
+                    <a href="/tra-cuu/">Tra Cứu Sách</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="apps.html">Thể Loại</a>
+                    <a href="/the-loai/all">Thể Loại</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="#">Theo Chuyên Ngành</a>
+                    <a href="/nganh/">Theo Chuyên Ngành</a>
                 </li>
             </ul>
 
@@ -69,22 +69,22 @@
                     <a href="/">Trang Chủ</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/tra-cuu">Tra Cứu Sách </a>
+                    <a href="/tra-cuu/">Tra Cứu Sách </a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="apps.html">Thể Loại</a>
+                    <a href="/the-loai/all">Thể Loại</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="#">Theo Chuyên Ngành</a>
+                    <a href="/nganh/">Theo Chuyên Ngành</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/muon">Đăng Ký Mượn</a>
+                    <a href="/muon/">Đăng Ký Mượn</a>
                 </li>
             </ul>
 
             <ul class="u_nav desktopNav">
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/muon">Đăng Ký Mượn</a>
+                    <a href="/muon/">Đăng Ký Mượn</a>
                 </li>
             </ul>
 

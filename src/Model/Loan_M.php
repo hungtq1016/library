@@ -47,6 +47,13 @@
             $create->execute([$user,$start,$end,$fine,$status]);   
             return $db->getId();
         }
+        public function read($id)
+        {
+            $db = new connect();
+            $query = "SELECT * FROM loans WHERE loan_id= $id";
+            $response = $db->getInstance($query);
+            return $response;
+        }
 
         public function readFine($id)
         {
@@ -77,6 +84,44 @@
             $query = "SELECT COUNT(*) AS c FROM loans WHERE loan_status>1";
             $response = $db->getInstance($query);
             return $response;
+        }
+        public function update_confirm($id)
+        {
+            $query = "UPDATE loans SET loan_status = ? WHERE loan_id=? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([0,$id]);
+        }
+
+        public function update_loss($id)
+        {
+            $query = "UPDATE loans SET loan_status = ? WHERE loan_id=? ";
+            $query2 = "UPDATE  loans_detail SET ld_status = ? WHERE ld_loan=? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([3,$id]);
+            $update2=$db->excePrepare($query2);
+            $update2->execute([3,$id]);
+        }
+
+        public function update_return($id)
+        {
+            $query = "UPDATE loans SET loan_status = ? WHERE loan_id=? ";
+            $query2 = "UPDATE  loans_detail SET ld_status = ? WHERE ld_loan=? ";
+
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([1,$id]);
+            $update2=$db->excePrepare($query2);
+            $update2->execute([1,$id]);
+        }
+
+        public function update_detail($id)
+        {
+            $query = "UPDATE  loans_detail SET ld_status = ? WHERE ld_loan=? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([0,$id]);
         }
     }
 

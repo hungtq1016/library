@@ -94,9 +94,9 @@
                                 <h3 class="card-title">Danh Sách</h3>
                             </div>
                             <div class="col">
-                                <?php if (isset($_COOKIE['msgUpdate'])) :?>
+                                <?php if (isset($_COOKIE['msg'])) :?>
                                 <div class="alert alert-success" role="alert">
-                                    <?php echo $_COOKIE['msgUpdate']?>
+                                    <?php echo $_COOKIE['msg']?>
                                 </div>
                                 <?php endif ?>
                             </div>
@@ -158,11 +158,11 @@
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <?php if ($set['loan_status'] ==0) { ?>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        href="http://localhost:8001/src/Controllers/Loan/return.php?id=<?php echo $set['loan_id']?>">
                                                         Xác Nhận Trả
                                                     </a>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        href="http://localhost:8001/src/Controllers/Loan/loss.php?id=<?php echo $set['loan_id']?>">
                                                         Báo Mất
                                                     </a>
                                                     <?php }else if($set['loan_status'] ==2 &&$set['loan_status'] ==3){ ?>
@@ -172,7 +172,7 @@
                                                     </a>
                                                     <?php }else{ ?>
                                                         <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/Books/invisible.php?id=<?php echo $set['loan_id']?>">
+                                                        href="http://localhost:8001/src/Controllers/Loan/confirm.php?id=<?php echo $set['loan_id']?>">
                                                         Xác Nhận Mượn
                                                     </a>
                                                     <?php }?>

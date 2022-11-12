@@ -66,6 +66,15 @@
             $update=$db->excePrepare($query);
             $update->execute(["Ẩn",$id]);
         }
+
+        public function update_qty($id)
+        {
+            $query = "UPDATE books SET book_qty = book_qty + 1 WHERE book_id= ? ";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([$id]);
+        }
+
         public function delete($id)
         {
             $query = "DELETE FROM books WHERE book_id=?";
