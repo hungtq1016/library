@@ -3,15 +3,15 @@
         <div class="col-3">
             <ul class="list-group">
                 <?php 
-                    $category = new Category_M();
-                    $store = $category->store();
+                    $major = new Major_M();
+                    $store = $major->store();
                     while($set = $store->fetch()):
-                        if($set['category_id'] == $id):
+                        if($set['major_id'] == $id):
                 ?>
-                <li class="list-group-item active"><a href="/the-loai/<?php echo $set['category_id']?>" class="text-white"><?php echo $set['category_name']?></a></li>
+                <li class="list-group-item active"><a href="/nganh/<?php echo $set['major_id']?>" class="text-white"><?php echo $set['major_name']?></a></li>
                 <?php else:
                 ?>
-                <li class="list-group-item"><a href="/the-loai/<?php echo $set['category_id']?>"><?php echo $set['category_name']?></a></li>
+                <li class="list-group-item"><a href="/nganh/<?php echo $set['major_id']?>"><?php echo $set['major_name']?></a></li>
                 <?php
                 endif;endwhile ?>
             </ul>
@@ -19,28 +19,16 @@
         <div class="col-9">
             <?php
                 if($id >0 && is_numeric($id)):
-                $read = $category->read($id);
-                $query = " WHERE category_id = ".$id;
+                $read = $major->read($id);
+                $query = " WHERE book_major = ".$id;
             ?>
-            <h3 class="pb-2"><?php echo $read['category_name']?></h3>
+            <h3 class="pb-2"><?php echo $read['major_name']?></h3>
             <?php endif; ?>
             <?php
                 if($id == "all"):
-                $query = "";
+                $query = "WHERE book_major>0";
             ?>
             <h3 class="pb-2">Tất Cả Sách</h3>
-            <?php endif; ?>
-            <?php
-                if($id == "hot"):
-                $query = "ORDER BY book_instock DESC";
-            ?>
-            <h3 class="pb-2">Sách Nổi Bật</h3>
-            <?php endif; ?>
-            <?php
-                if($id == "new"):
-                $query = "ORDER BY book_id DESC";
-            ?>
-            <h3 class="pb-2">Sách Mới</h3>
             <?php endif; ?>
             <div class="row" style="row-gap: 12px;">
                 <?php 
@@ -57,7 +45,7 @@
                             <div class="fw-bold"><?php echo $set['book_name']?></div>
                             <div><?php echo $set['author_name']?></div>
                             <div class="buttons d-flex flex-row">
-                                <a href="sach/<?php echo $set['book_id']?>" class="btn btn-success w-100 fw-bold">
+                                <a href="/sach/<?php echo $set['book_id']?>" class="btn btn-success w-100 fw-bold">
                                     Xem
                                 </a>
                             </div>

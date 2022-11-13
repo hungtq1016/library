@@ -14,12 +14,8 @@
     <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/scss/MainNavigationV2cssf569.css?v=kqp4F3lBew9PcpQHb0_b6TvLQMFp7riS4hd_H6H9Um41" rel="stylesheet" type="text/css" media="screen" />
     <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/scss/Allcss9bac.css?v=NTCmsOTqVgvVRVzTxxZZ8RrLPSTgxkuLY20qp_4s25I1" rel="stylesheet" type="text/css"media="screen" />
     <link href="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/scss/exploreV2cssdb13.css?v=s7-94H4SiDybWqpNPH08vBfFBE7uxcRywgmJhgsB9fM1" rel="stylesheet"type="text/css" media="screen">
-    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
-
 
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/v2/bundles/All_bundle.js"></script>
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/v2/bundles/MainNavigationV2_bundle.js"></script>
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/vendor/modernizr.min.js"></script>
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-<script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 </head>

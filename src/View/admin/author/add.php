@@ -17,7 +17,7 @@
     <div class="page-body">
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <form action="http://localhost:8001/src/Controllers/Authors/add.php" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">

@@ -17,7 +17,7 @@
     <div class="page-body">
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <?php 
                     $category = new Category_M();
                     $read = $category->read($id);                           

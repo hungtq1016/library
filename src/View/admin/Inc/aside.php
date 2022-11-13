@@ -152,6 +152,64 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item dropdown <?php echo ($path == 'majors' ||$path == 'major')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 4h6v6h-6z"></path>
+                                <path d="M14 4h6v6h-6z"></path>
+                                <path d="M4 14h6v6h-6z"></path>
+                                <circle cx="17" cy="17" r="3"></circle>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Khoa
+                        </span>
+                    </a>
+                    <div class="dropdown-menu <?php echo ($path == 'categories' ||$path == 'category')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/admin/majors">
+                                    Tra Cứu Khoa
+                                </a>  
+                                <a class="dropdown-item" href="/admin/major">
+                                    Thêm Khoa
+                                </a>           
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown <?php echo ($path == 'shelfs' ||$path == 'shelf')? 'active' : ''?>">
+                    <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 4h6v6h-6z"></path>
+                                <path d="M14 4h6v6h-6z"></path>
+                                <path d="M4 14h6v6h-6z"></path>
+                                <circle cx="17" cy="17" r="3"></circle>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Kệ Sách
+                        </span>
+                    </a>
+                    <div class="dropdown-menu <?php echo ($path == 'categories' ||$path == 'category')? 'show' : ''?>">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/admin/shelfs">
+                                    Tra Cứu Kệ
+                                </a>  
+                                <a class="dropdown-item" href="/admin/shelf">
+                                    Thêm Kệ
+                                </a>           
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item <?php echo ($path == 'log')? 'active' : ''?>">
                     <a class="nav-link" href="/admin/log">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">

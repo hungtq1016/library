@@ -4,3 +4,18 @@
 .table-responsive .row{
     padding: 0 20px;
 }
+.toggle{
+    position: relative;
+    display: block;
+}
+.target{
+    position: absolute;
+    display: none;
+    background-color: #f1f2f3;
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.toggle:hover .target{
+    display: block;
+}

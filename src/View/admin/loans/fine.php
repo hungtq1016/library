@@ -16,7 +16,7 @@
     </div>
     <div class="container-fluid pt-4">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
                 <div class="card">
                     <div class="table-responsive">
                         <table class="table table-vcenter card-table">

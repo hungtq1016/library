@@ -5,10 +5,10 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        Quản Lý Thể Loại
+                        Quản Lý Khoa
                     </div>
                     <h2 class="page-title">
-                        Thêm Thể Loại
+                        Thêm Khoa
                     </h2>
                 </div>
             </div>
@@ -18,7 +18,7 @@
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
                 <div class="col-12 col-xl-6">
-                    <form action="http://localhost:8001/src/Controllers/Category/add.php" method="post" class="card"
+                    <form action="http://localhost:8001/src/Controllers/major.php?action=add" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Thêm</h4>
@@ -41,9 +41,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xl-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Tên Thể Loại</label>
+                                                <label class="form-label">Tên Khoa</label>
                                                 <input type="text" class="form-control" name="name"
-                                                    placeholder="Nhập tên thể loại..." required>
+                                                    placeholder="Nhập tên khoa..." required>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="card-footer text-end">
                             <div class="d-flex">
-                                <a href="/admin/categories" class="btn btn-link">Trở Về</a>
+                                <a href="/admin/majors" class="btn btn-link">Trở Về</a>
                                 <button type="submit" class="btn btn-primary ms-auto">Xác Nhận</button>
                             </div>
                         </div>

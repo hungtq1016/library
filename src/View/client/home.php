@@ -92,7 +92,7 @@
             <div class="shelf__row">
                 <?php 
                     $books = new Book_M();
-                    $store = $books->readStatement('WHERE book_major<>"Không" ORDER BY book_instock DESC LIMIT 6');
+                    $store = $books->readStatement('WHERE book_major<>"0" ORDER BY book_instock DESC LIMIT 6');
                     while($set = $store->fetch()):
                 ?>
                 <div class="title-result">
@@ -136,7 +136,7 @@
 
             <div class="shelf__row">
                 <?php 
-                    $store2 = $books->readStatement('WHERE book_major="Không" ORDER BY book_instock DESC LIMIT 6');
+                    $store2 = $books->readStatement('WHERE book_major="0" ORDER BY book_instock DESC LIMIT 6');
                     while($set = $store2->fetch()):
                 ?>
                 <div class="title-result">

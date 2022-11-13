@@ -7,9 +7,11 @@
         public function store()
         {
             $db = new connect();
-            $query = 'SELECT books.*,authors.author_name,category.category_name FROM books
+            $query = 'SELECT books.*,authors.author_name,category.category_name,major.major_name,shelf.shelf_name FROM books
                     INNER JOIN authors ON books.book_author = authors.author_id
-                    INNER JOIN category ON books.book_category = category.category_id';
+                    INNER JOIN category ON books.book_category = category.category_id
+                    INNER JOIN major ON books.book_major = major.major_id
+                    INNER JOIN shelf ON books.book_shelf = shelf.shelf_id';
             $response = $db->getList($query);
             return $response;
         }
@@ -28,6 +30,8 @@
             $query = "SELECT * FROM books 
                     INNER JOIN authors ON books.book_author = authors.author_id
                     INNER JOIN category ON books.book_category = category.category_id
+                    INNER JOIN major ON books.book_major = major.major_id
+                    INNER JOIN shelf ON books.book_shelf = shelf.shelf_id
                     WHERE book_id= $id";
             $response = $db->getInstance($query);
             return $response;
@@ -69,7 +73,20 @@
 
         public function update_qty($id)
         {
-            $query = "UPDATE books SET book_qty = book_qty + 1 WHERE book_id= ? ";
+            $query = "UPDATE books as b
+            INNER JOIN loans_detail as ld ON b.book_id = ld.ld_book
+            SET b.book_qty = b.book_qty + 1
+            WHERE ld.ld_id IN(
+                SELECT ld_id FROM loans_detail WHERE loans_detail.ld_loan = ?
+            )";
+            $db = new connect();
+            $update=$db->excePrepare($query);
+            $update->execute([$id]);
+        }
+
+        public function update_stock($id)
+        {
+            $query = "UPDATE books SET book_qty = book_qty - 1,book_instock = book_instock + 1 WHERE book_id= ? ";
             $db = new connect();
             $update=$db->excePrepare($query);
             $update->execute([$id]);

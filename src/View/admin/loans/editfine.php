@@ -17,12 +17,12 @@
     <div class="page-body">
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <?php 
                     $fine = new Loan_M();
                     $read = $fine->readFine($id);                           
                 ?>
-                    <form action="http://localhost:8001/src/Controllers/Loan/editPrice.php" method="post" class="card"
+                    <form action="http://localhost:8001/src/Controllers/loan.php?action=tienphat" method="post" class="card"
                         enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Sửa Thông Tin</h4>

@@ -17,7 +17,7 @@
     <div class="page-body">
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <?php 
                     $books = new Book_M();
                     $read = $books->read($id);                           
@@ -95,14 +95,30 @@
                                                     value="<?php echo $read["book_qty"]?>" min="0">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Ke</label>
-                                                <input type="number" class="form-control" name="shelf"
-                                                    value="<?php echo $read["book_shelf"]?>" min="0">
+                                                <div class="form-label">Kệ Sách</div>
+                                                <select class="form-select" name="shelf">
+                                                    <option value=<?php echo $read['shelf_id']?> selected><?php echo $read["shelf_name"]?></option>
+                                                    <?php 
+                                                        $shelf = new Shelf_M();
+                                                        $store = $shelf->store();
+                                                        while($set = $store->fetch()): if($set['shelf_id']!=$read['shelf_id']):
+                                                    ?>
+                                                    <option value=<?php echo $set['shelf_id']?>><?php echo $set["shelf_name"]?></option>
+                                                    <?php endif;endwhile?>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Khoa</label>
-                                                <input type="text" class="form-control" name="major"
-                                                    value="<?php echo $read["book_major"]?>" min="0">
+                                                <div class="form-label">Khoa</div>
+                                                <select class="form-select" name="major">
+                                                    <option value=<?php echo $read['major_id']?> selected><?php echo $read["major_name"]?></option>
+                                                    <?php 
+                                                        $major = new Major_M();
+                                                        $store = $major->store();
+                                                        while($set = $store->fetch()): if($set['major_id']!=$read['major_id']):
+                                                    ?>
+                                                    <option value=<?php echo $set['major_id']?>><?php echo $set["major_name"]?></option>
+                                                    <?php endif;endwhile?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

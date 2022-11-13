@@ -5,6 +5,8 @@
   include_once 'src/Model/Log_M.php';
   include_once 'src/Model/LoginLog_M.php';
   include_once 'src/Model/Loan_M.php';
+  include_once 'src/Model/Major_M.php';
+  include_once 'src/Model/Shelf_M.php';
   $req = explode("/", $_SERVER['REQUEST_URI'])[1];
     if ($req == 'admin') {
 ?>

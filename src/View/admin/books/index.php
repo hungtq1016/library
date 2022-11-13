@@ -135,8 +135,12 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="/admin/book/<?php echo $set['book_id']?>">
-                                                <?php echo $set['book_name']?>
+                                            <a href="/admin/book/<?php echo $set['book_id']?>" class="toggle">
+                                                <span><?php echo $set['book_name']?></span>
+                                                <div class="target">
+                                                    <div>Kệ: <span><?php echo $set['shelf_name']?></span></div>
+                                                    <div>Khoa: <span><?php echo $set['major_name']?></span></div>
+                                                </div>
                                             </a>
                                         </td>
                                         <td>

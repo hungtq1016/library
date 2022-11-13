@@ -17,9 +17,9 @@
     <div class="page-body">
         <div class="container-sm">
             <div class="row row-cards justify-content-center">
-                <div class="col-6">
-                    <form action="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Books/add.php" method="post" class="card"
-                        enctype="multipart/form-data">
+                <div class="col-12 col-xl-6">
+                    <form action="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Books/add.php" method="post"
+                        class="card" enctype="multipart/form-data">
                         <div class="card-header">
                             <h4 class="card-title">Thêm</h4>
                         </div>
@@ -60,7 +60,7 @@
                                                     $authors = new Author_M();
                                                     $store = $authors->store();
                                                     while($set = $store->fetch()):
-                                                ?>
+                                                    ?>
                                                     <option value=<?php echo $set['author_id']?>>
                                                         <?php echo $set['author_name']?></option>
                                                     <?php endwhile?>
@@ -85,14 +85,30 @@
                                                     min="0">
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Ke</label>
-                                                <input type="number" class="form-control" name="shelf" value="1"
-                                                    min="0">
+                                                <div class="form-label">Kệ Sách</div>
+                                                <select class="form-select" name="shelf">
+                                                    <?php 
+                                                    $shelf = new Shelf_M();
+                                                    $store = $shelf->store();
+                                                    while($set = $store->fetch()):
+                                                    ?>
+                                                    <option value=<?php echo $set['shelf_id']?>>
+                                                        <?php echo $set['shelf_name']?></option>
+                                                    <?php endwhile?>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Khoa</label>
-                                                <input type="text" class="form-control" name="major"
-                                                    min="0">
+                                                <div class="form-label">Khoa</div>
+                                                <select class="form-select" name="major">
+                                                    <?php 
+                                                    $major = new Major_M();
+                                                    $store = $major->store();
+                                                    while($set = $store->fetch()):
+                                                    ?>
+                                                    <option value=<?php echo $set['major_id']?>>
+                                                        <?php echo $set['major_name']?></option>
+                                                    <?php endwhile?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -107,7 +123,7 @@
                         </div>
                     </form>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -37,7 +37,7 @@
                     <a href="/the-loai/all">Thể Loại</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/nganh/">Theo Chuyên Ngành</a>
+                    <a href="/nganh/all">Theo Chuyên Ngành</a>
                 </li>
             </ul>
 
@@ -75,7 +75,7 @@
                     <a href="/the-loai/all">Thể Loại</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
-                    <a href="/nganh/">Theo Chuyên Ngành</a>
+                    <a href="/nganh/all">Theo Chuyên Ngành</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
                     <a href="/muon/">Đăng Ký Mượn</a>

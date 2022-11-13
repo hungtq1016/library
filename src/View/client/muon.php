@@ -45,7 +45,7 @@
                                                         style="width: 65px;">
                                                 </div>
                                                 <div class="ms-3">
-                                                    <h5><?php echo $read['book_name']?></h5>
+                                                    <a href="/sach/<?php echo $read['book_id']?>"><h5><?php echo $read['book_name']?></h5></a>
                                                     <p class="small mb-0"><?php echo $read['author_name']?></p>
                                                 </div>
                                             </div>
@@ -53,7 +53,7 @@
                                                 <div>
                                                     <h5 class="mb-0"><?php echo $read['category_name']?></h5>
                                                 </div>
-                                                <a href="#!" class="ms-3 text-danger">
+                                                <a href="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/loan.php?action=xoa&id=<?php echo $read['book_id']?>" class="ms-3 text-danger">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                         <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -76,7 +76,7 @@
                                 <div class="card bg-cyan text-white rounded-3" style="background: #f1f2f3;">
                                     <div class="card-body">
                                         <form class="mt-4" id="submit-loan"
-                                            action="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/Loan/addLoan.php"
+                                            action="http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/loan.php?action=muonsach"
                                             method="post">
                                             <div class="form-outline form-white mb-4">
                                                 <label class="form-label text-dark" for="typeName">Nhập Email</label>

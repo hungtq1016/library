@@ -5,10 +5,10 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        Quản Lý Mượn Sách
+                        Quản Lý Kệ Sách
                     </div>
                     <h2 class="page-title">
-                        Tra Cứu Danh Sách Mượn
+                        Tra Cứu Kệ
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -36,7 +36,7 @@
                             </svg>
                             Thêm Bằng Excel
                         </a>
-                        <a href="/book" class="btn btn-primary d-none d-sm-inline-block">
+                        <a href="/admin/shelf" class="btn btn-primary d-none d-sm-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -44,7 +44,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
-                            Thêm Sách
+                            Thêm Kệ
                         </a>
                         <a href="/book-e-excel" class="btn btn-info d-sm-none btn-icon">
                             <!-- SVG export -->
@@ -68,7 +68,7 @@
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </a>
-                        <a href="/loan" class="btn btn-primary d-sm-none btn-icon">
+                        <a href="/admin/shelf" class="btn btn-primary d-sm-none btn-icon">
                             <!-- SVG plus -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -104,51 +104,37 @@
                         </div>
                         <div class="row"></div>
                         <div class="table-responsive">
-                            <table class="table card-table table-vcenter text-nowrap datatable" id="booksTable">
+                            <table class="table card-table table-vcenter text-nowrap datatable" id="authorTable">
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Người Mượn</th>
-                                        <th>Ngày Mượn</th>
-                                        <th>Ngày Trả</th>
-                                        <th>Tiền Phạt</th>
+                                        <th>Thể Loại</th>
                                         <th>Trạng Thái</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        $store = $loans->store();
-                                        $i=0;
-                                        while($set = $store->fetch()):
-                                        $i++;
-                                    ?>
+                                    $shelf = new Shelf_M();
+                                    $store = $shelf->store();
+                                    $i=0;
+                                    while($set = $store->fetch()):
+                                    $i++;
+                                ?>
                                     <tr>
                                         <td><span class="text-muted"><?php echo $i?></span></td>
                                         <td>
-                                            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="show-detail" data-id="<?php echo $set['loan_id']?>">
-                                                <?php echo $set['loan_user']?>
+                                            <a href="/admin/shelf/<?php echo $set['shelf_id']?>">
+                                                <?php echo $set['shelf_name']?>
                                             </a>
                                         </td>
                                         <td>
-                                            <?php echo $set['loan_start']?>
-                                        </td>
-                                        <td>
-                                            <?php echo $set['loan_end']?>
-                                        </td>
-                                        <td>
-                                            <?php echo number_format($set['loan_fine']).' VNĐ'?>
-                                        </td>
-                                        <td>
-                                            <?php if($set['loan_status'] ==0) {?>
-                                            <span class="badge bg-success me-1"></span> <?php echo $set['status_name']?>
-                                            <?php }elseif($set['loan_status'] ==1){?>
-                                            <span class="badge bg-warning me-1"></span> <?php echo $set['status_name']?>
-                                            <?php }else if($set['loan_status']==4){ ?>
-                                            <span class="badge bg-info me-1"></span> <?php echo $set['status_name']?>
-                                            <?php }else{?>
-                                                <span class="badge bg-danger me-1"></span> <?php echo $set['status_name']?>
-                                                <?php }?>
+                                            <?php if($set['shelf_status'] ==6){?>
+                                            <span class="badge bg-success me-1"></span>
+                                            <?php echo $set['status_name'];}?>
+                                            <?php if($set['shelf_status'] ==7){?>
+                                            <span class="badge bg-danger me-1"></span>
+                                            <?php echo $set['status_name'];}?>
                                         </td>
                                         <td class="text-end">
                                             <span class="dropdown">
@@ -156,70 +142,41 @@
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">Hành
                                                     Động</button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <?php if ($set['loan_status'] ==0) { ?>
+                                                    <?php if ($set['shelf_status'] == 6) { ?>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/loan.php?action=tra&id=<?php echo $set['loan_id']?>">
-                                                        Xác Nhận Trả
+                                                        href="http://localhost:8001/src/Controllers/shelf.php?action=invisible&id=<?php echo $set['shelf_id']?>">
+                                                        Ẩn
                                                     </a>
+                                                    <?php } if ($set['shelf_status'] == 7) {?>
                                                     <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/loan.php?action=mat&id=<?php echo $set['loan_id']?>&email=<?php echo $set['loan_user']?>">
-                                                        Báo Mất
+                                                        href="http://localhost:8001/src/Controllers/shelf.php?action=visible&id=<?php echo $set['shelf_id']?>">
+                                                        Hiện
                                                     </a>
-                                                    <?php }else if($set['loan_status'] ==2 &&$set['loan_status'] ==3){ ?>
-                                                    <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/loan.php?action=vephat&id=<?php echo $set['loan_id']?>">
-                                                        Gửi vé phạt
+                                                    <?php } ?>
+                                                    <a class="dropdown-item" onclick=" return confirm('Bạn có chắc chắn muốn xóa?')"
+                                                        href="http://localhost:8001/src/Controllers/shelf.php?action=delete&id=<?php echo $set['shelf_id']?>">
+                                                        Xóa
                                                     </a>
-                                                    <?php }else{ ?>
-                                                        <a class="dropdown-item"
-                                                        href="http://localhost:8001/src/Controllers/loan.php?action=confirm&id=<?php echo $set['loan_id']?>">
-                                                        Xác Nhận Mượn
-                                                    </a>
-                                                    <?php }?>
                                                 </div>
                                             </span>
                                         </td>
                                     </tr>
                                     <?php 
-                                    endwhile;
-                                    ?>
+                                endwhile;
+                                ?>
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Chi Tiết Sách</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="result">
-        Không có kết quả
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-$(document).ready(function(){
-  $(".show-detail").click(function(){
-    var id = $(this).data('id');
-    $.ajax({url: "http://<?php echo $_SERVER['HTTP_HOST']?>/src/Controllers/loan.php?action=detail&id="+id, success: function(result){
-      $("#result").html(result);
-    }});
-  });
-});
-</script>
+
 <script>
 $(document).ready(function() {
-    $('#booksTable').DataTable();
+    $('#authorTable').DataTable();
 });
 </script>
