@@ -54,7 +54,18 @@
             $response = $db->getInstance($query);
             return $response;
         }
-
+        public function readEmail($val)
+        {
+            $db = new connect();
+            $query = "SELECT loans_detail.*,books.book_name,code.status_name FROM loans_detail 
+            INNER JOIN books ON loans_detail.ld_book = books.book_id 
+            INNER JOIN code ON code.status_code = loans_detail.ld_status 
+            WHERE ld_loan IN 
+            (SELECT loan_id FROM loans WHERE loan_user= '".$val."' AND loan_status = 1 )";
+            $response = $db->getList($query);
+            return $response;
+            
+        }
         public function readFine($id)
         {
             $db = new connect();
@@ -69,6 +80,13 @@
             $db = new connect();
             $update=$db->excePrepare($query);
             $update->execute([$money,$id]);
+        }
+        public function countStatement($statement,$id)
+        {
+            $db = new connect();
+            $query = "SELECT COUNT($id) AS c FROM loans ".$statement;
+            $response = $db->getInstance($query);
+            return $response;
         }
 
         public function count()
@@ -85,6 +103,15 @@
             $response = $db->getInstance($query);
             return $response;
         }
+
+        public function sum()
+        {
+            $db = new connect();
+            $query = "SELECT SUM(loan_fine) AS c FROM loans";
+            $response = $db->getInstance($query);
+            return $response;
+        }
+
         public function update_confirm($id)
         {
             $query = "UPDATE loans SET loan_status = ? WHERE loan_id=? ";
@@ -95,13 +122,25 @@
 
         public function update_loss($id)
         {
-            $query = "UPDATE loans SET loan_status = ? WHERE loan_id=? ";
+            $query = "UPDATE loans SET loan_status = ?,loan_fine=(SELECT fine_money FROM fine WHERE fine_type = 3) WHERE loan_id=? ";
             $query2 = "UPDATE  loans_detail SET ld_status = ? WHERE ld_loan=? ";
             $db = new connect();
             $update=$db->excePrepare($query);
             $update->execute([3,$id]);
             $update2=$db->excePrepare($query2);
             $update2->execute([3,$id]);
+        }
+
+        public function update_expired($id,$email)
+        {
+            $query = "UPDATE loans SET loan_status = ?,loan_fine=(SELECT fine_money FROM fine WHERE fine_type = 2) WHERE loan_id=? ";
+            $query2 = "UPDATE  loans_detail SET ld_status = ? WHERE ld_loan=? ";
+            $db = new connect();
+           
+            $update=$db->excePrepare($query);
+            $update->execute([2,$id]);
+            $update2=$db->excePrepare($query2);
+            $update2->execute([2,$id]);
         }
 
         public function update_return($id)

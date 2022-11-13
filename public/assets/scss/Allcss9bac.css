@@ -368,7 +368,23 @@
     }
 }
 
+.search-target{
+    position: relative;
+}
 
+.search-result{
+    position: absolute;
+    margin-top: 4px;
+    top: 100%;
+    left: 8px;
+    right: 0;
+    padding: 8px 12px;
+    background-color: #f1f2f3;
+    border: 1px solid black;
+    color: black;
+    border-radius: 20px;
+    display: none;
+}
 
 .card:hover .buttons {
 

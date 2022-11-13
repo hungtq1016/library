@@ -16,10 +16,17 @@
         public function create($name,$desc,$role)
         {
             $query = "INSERT INTO logs(log_name,log_desc,log_date,log_role) VALUES (?,?,?,?)";
-            $day = date("Y-m-d h:i:sa");
+            $date = date("Y-m-d");
             $db = new connect();
             $create=$db->excePrepare($query);
-            $create->execute([$name,$desc,$day,$role]);
+            $create->execute([$name,$desc,$date,$role]);
+        }
+        public function count($value)
+        {
+            $db = new connect();
+            $query = "SELECT COUNT(log_id) AS c FROM logs $value";
+            $response = $db->getInstance($query);
+            return $response;
         }
     }
 

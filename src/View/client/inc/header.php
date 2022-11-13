@@ -18,4 +18,6 @@
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/v2/bundles/All_bundle.js"></script>
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/v2/bundles/MainNavigationV2_bundle.js"></script>
     <script src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/public/assets/js/vendor/modernizr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
 </head>

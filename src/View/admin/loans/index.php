@@ -120,7 +120,11 @@
                                     <?php 
                                         $store = $loans->store();
                                         $i=0;
+                                        $today = date("Y-m-d");
                                         while($set = $store->fetch()):
+                                        if ($today > $set['loan_end'] && $set['loan_status'] == 0) {
+                                            $loans->update_expired($set['loan_id'],$set['loan_user']);
+                                        }
                                         $i++;
                                     ?>
                                     <tr>

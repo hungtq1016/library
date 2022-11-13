@@ -15,6 +15,21 @@
     $action = $_GET['action'];
     $id = $_GET['id'];
     switch ($action):
+        case "lichsu":
+            $store = $loan->readEmail($id);
+            echo '<ul class="list-group">';
+            while($set = $store->fetch()):
+                if ($set['ld_status']==0) {
+                    echo '<li class="list-group-item d-flex justify-content-between"><span>'.$set['book_name'].'</span><span class="text-success">'.$set['status_name'].'</span></li>';
+                }else if($set['ld_status']==1){
+                    echo '<li class="list-group-item d-flex justify-content-between"><span>'.$set['book_name'].'</span><span class="text-warning">'.$set['status_name'].'</span></li>';
+                }else{
+                    echo '<li class="list-group-item d-flex justify-content-between"><span>'.$set['book_name'].'</span><span class="text-danger">'.$set['status_name'].'</span></li>';
+                }
+                
+            endwhile;
+            echo '</ul>';
+            break;        
     case "xoa":
         if (($key = array_search($id, $books)) !== false) {
             unset($books[$key]);
@@ -32,8 +47,8 @@
             header('Location:http://' . $_SERVER['HTTP_HOST'] . '/muon');
             return;
         }
-        $start = date("d/m/Y");
-        $end = date("d/m/Y", strtotime($start. ' + 7 days'));
+        $start = date("Y-m-d");
+        $end = date("Y-m-d", strtotime($start. ' + 7 days'));
         if ($books != "") {   
             foreach ($books as $key => $value) {
                 $updateQty = $book->update_stock($value);
@@ -129,7 +144,15 @@
         setcookie("msg", "Đã xác nhận!", time() + 15, "/");
         header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/loans');
         break;
-    default:
+    case "hethan":
+        $read = $loan->read($id);
+        $loan->update_expired($id,$read['loan_user']);
+        $log->create($user[1],"đã báo <span class='text-danger'> hết hận </span> cho sinh viên <b>".$read['loan_user']."</b> từ mượn.",$user[3]);
+        $content = "Bạn đã hết hạn vui lòng đưa sách về thư viện<div>-CĐ CNTT-</div>";
+        $mailer->create($user,"Thông báo hết hạn",$content);
+        header('Location:http://' . $_SERVER['HTTP_HOST'] . '/admin/loans');
+        break;
+        default:
         echo "Hình như sai rồi";
     endswitch;
    

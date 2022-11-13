@@ -3,7 +3,7 @@
         <div class="l-container">
             <ul class="u_nav">
                 <li class="u_nav__item u_nav__item-link u_nav__find-a-library">
-                    <a href="libraries.html"><span class="icon icon-locate-pin"></span> Tra Cứu Sách Mượn</a>
+                    <a href="/lich-su"><span class="icon icon-locate-pin"></span> Tra Cứu Sách Mượn</a>
                 </li>
             </ul>
         </div>
@@ -42,16 +42,17 @@
             </ul>
 
             <div class="u_search masthead_search" id="search">
-                <form action="https://www.Thư Viện.com/search" class="u_search__form libbyBlogLinkStylingUpdates"
-                    method="get">
-                    <div class="u_search__form-cell-1">
+                <form action="/the-loai/" class="u_search__form " method="get">
+                    <div class="u_search__form-cell-1 search-target">
                         <label id="search-label" for="searchInput" style="display: none">Tìm Kiếm</label>
-                        <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off"
-                            spellcheck="false" id="searchInput" name="q" class="typeahead u_search__query"
-                            maxlength="250" placeholder="Tìm Sách" value="" aria-labelledby="search-label" />
+                        <input type="search" id="search-target" name="search" class="typeahead u_search__query"
+                            placeholder="Tìm Sách" />
+                            <div class="search-result" id="result">
+                                <div><a href="#">Không có kết quả</a></div>
+                            </div>
                     </div>
                     <div class="u_search__form-cell-3">
-                        <button class="u_search__submit" tabindex="-1" value="" aria-label="Search">
+                        <button class="u_search__submit" tabindex="-1" type="submit" aria-label="Search">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="black" fill="#fff"
                                 stroke-linecap="round" stroke-linejoin="round">
@@ -62,10 +63,10 @@
                         </button>
                     </div>
                 </form>
+                
             </div>
-
             <ul class="u_nav pages mobileNav">
-            <li class="u_nav__item u_nav__item-link">
+                <li class="u_nav__item u_nav__item-link">
                     <a href="/">Trang Chủ</a>
                 </li>
                 <li class="u_nav__item u_nav__item-link">
@@ -97,3 +98,17 @@
         </div>
     </div>
 </header>
+<script>
+    $("#search-target").keydown(function(){
+        var val = $("#search-target").val();
+        if (!$("#search-target").val()) {
+            $("#result").hide();
+        }else{
+            $("#result").show();
+        }
+    
+    $.ajax({url: "http://localhost:8001/src/Controllers/book.php?action=get&id="+val, success: function(result){
+        $("#result").html(result);
+    }});
+    });
+</script>

@@ -36,13 +36,13 @@ get('/admin/fine', 'src/View/admin/loans/fine.php');
 get('/admin/fine/$id', 'src/View/admin/loans/editfine.php');
 
 get('/admin/log', 'src/View/admin/history/index.php');
-get('/admin/test', 'src/View/admin/test.php');
 get('/admin/login', 'src/View/admin/login.php');
 
 get('/', 'src/View/client/home.php');
 get('/sach/$id', 'src/View/client/sach.php');
 get('/the-loai/$id', 'src/View/client/the-loai.php');
 get('/nganh/$id', 'src/View/client/nganh.php');
+get('/lich-su', 'src/View/client/lich-su.php');
 
 get('/tra-cuu', 'src/View/client/tra-cuu.php');
 get('/muon', 'src/View/client/muon.php');

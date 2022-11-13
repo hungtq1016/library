@@ -18,6 +18,7 @@
         </div>
         <div class="col-9">
             <?php
+
                 if($id >0 && is_numeric($id)):
                 $read = $category->read($id);
                 $query = " WHERE category_id = ".$id;
@@ -41,6 +42,12 @@
                 $query = "ORDER BY book_id DESC";
             ?>
             <h3 class="pb-2">Sách Mới</h3>
+            <?php endif; ?>
+            <?php
+                if(isset($_GET['search'])):
+                $query = "WHERE book_name LIKE '%".$_GET['search']."%'";
+            ?>
+            <h3 class="pb-2"><?php echo $_GET['search']?></h3>
             <?php endif; ?>
             <div class="row" style="row-gap: 12px;">
                 <?php 

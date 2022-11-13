@@ -14,7 +14,7 @@
             ?>
             <a href="/the-loai/<?php echo $set['category_id']?>" class="tag"><?php echo $set['category_name']?></a>
             <?php endif; endwhile ?>
-            <a href="/the-loai" class="tag" style="color:#ec1d25;border-color:#ec1d25">Xem Thêm</a>
+            <a href="/the-loai/all" class="tag" style="color:#ec1d25;border-color:#ec1d25">Xem Thêm</a>
         </div>
     </div>
 
@@ -156,7 +156,7 @@
 
         <div class="shelf__row">
         <?php 
-                $store = $books->readStatement('WHERE book_major = "CNTT" ORDER BY book_instock DESC LIMIT 6');
+                $store = $books->readStatement('WHERE book_major = 1 ORDER BY book_instock DESC LIMIT 6');
                 while($set = $store->fetch()):
             ?>
             <div class="title-result">
@@ -193,7 +193,7 @@
 
         <div class="shelf__row">
         <?php 
-                $store = $books->readStatement('WHERE book_major = "Không" ORDER BY book_instock DESC LIMIT 6');
+                $store = $books->readStatement('WHERE book_major = 0 ORDER BY book_instock DESC LIMIT 6');
                 while($set = $store->fetch()):
             ?>
             <div class="title-result">
