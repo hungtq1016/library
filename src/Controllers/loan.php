@@ -117,8 +117,8 @@
         break;
     case "muon":
         if ($books!= "") {
-            if (count($books) >= 3) {
-                setcookie("err", "Không Thể Mượn Quá 3 Cuốn Sách", time() + 15, "/");
+            if (count($books) >= 2) {
+                setcookie("err", "Không Thể Mượn Quá 2 Cuốn Sách", time() + 15, "/");
                 header('Location:http://' . $_SERVER['HTTP_HOST'] . '/sach/'.$id);
                 return;
             }
