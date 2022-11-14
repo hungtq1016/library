@@ -42,7 +42,7 @@
     case "muonsach":
         $user = $_POST['email'];
         $email = explode("@",$user)[1];
-        if ($email != "itc.edu.vn") {
+        if ($email != "stu.itc.edu.vn") {
             setcookie("err", "Email Không Đúng Định Dạng! Vui Lòng Nhập Lại", time() + 15, "/");
             header('Location:http://' . $_SERVER['HTTP_HOST'] . '/muon');
             return;

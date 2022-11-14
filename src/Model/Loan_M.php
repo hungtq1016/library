@@ -61,7 +61,7 @@
             INNER JOIN books ON loans_detail.ld_book = books.book_id 
             INNER JOIN code ON code.status_code = loans_detail.ld_status 
             WHERE ld_loan IN 
-            (SELECT loan_id FROM loans WHERE loan_user= '".$val."' AND loan_status = 1 )";
+            (SELECT loan_id FROM loans WHERE loan_user= '".$val."' )";
             $response = $db->getList($query);
             return $response;
             
